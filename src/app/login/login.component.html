@@ -1,0 +1,86 @@
+<div class="h-100 main">
+  <div class="row w-100 navigation">
+    <div class="col-md-4 mobileHidden"></div>
+    <div [className]="active == 'home' ? 'col-md-1 col-sm-3 home active' : 'col-md-1 col-sm-3 home inactive'">
+      <button type="button" mat-raised-button color="primary" class="btn-block" (click)="click('home')">Home</button>
+    </div>
+    <div [className]="active == 'gallery' ? 'col-md-1 col-sm-3 gallery active' : 'col-md-1 col-sm-3 gallery inactive'">
+      <button type="button" mat-raised-button color="primary" class="btn-block" (click)="click('gallery')">Gallery
+      </button>
+    </div>
+    <div [className]="active == 'posts' ? 'col-md-1 col-sm-3 posts active' : 'col-md-1 col-sm-3 posts inactive'">
+      <button type="button" mat-raised-button color="primary" class="btn-block" (click)="click('posts')">Posts</button>
+    </div>
+    <div
+      [className]="active == 'login' ? 'col-md-1 col-sm-3 login active' : 'col-md-1 col-sm-3 login inactive'">
+      <button type="button" mat-raised-button color="primary" class="btn-block" (click)="click('login')">Login
+      </button>
+    </div>
+    <div class="col-md-4 mobileHidden"></div>
+  </div>
+  <div class="first-page w-100">
+    <div class="login-form p-1" *ngIf="action==='login'">
+      <form (submit)="login(email, password)">
+        <h3 class="mb-3">Login</h3>
+        <mat-form-field class="w-100 mb-1">
+          <label>Username *</label>
+          <input type="text" matInput required name="email" [(ngModel)]="email">
+        </mat-form-field>
+        <mat-form-field class="w-100 mb-1">
+          <label>Password *</label>
+          <input [type]="showPassword == true ? 'text': 'password'" matInput required name="password"
+                 [(ngModel)]="password">
+        </mat-form-field>
+        <div class="text-center">
+          <button type="submit" [disabled]="email && password ? false: true" mat-raised-button color="primary"
+                  class="btn-block sign-in">Sign in
+          </button>
+          <p class="m-2 no-account">Don't have an account? <a (click)="goToRegistration()"> Sign up</a></p>
+          <p class="m-2"><a (click)="restartPassword()">Forgot your password</a></p>
+        </div>
+      </form>
+    </div>
+    <div class="register-form p-1" *ngIf="action==='registration'">
+    <form (submit)="registration(username, email, password)">
+        <h3 class="mb-3">Registration</h3>
+        <mat-form-field class="w-100 mb-1">
+          <label>Username *</label>
+          <input type="text" matInput required name="username" [(ngModel)]="username">
+        </mat-form-field>
+        <mat-form-field class="w-100 mb-1">
+            <label>Email *</label>
+            <input type="email" matInput required name="email" [(ngModel)]="email">
+        </mat-form-field>
+        <mat-form-field class="w-100 mb-1">
+          <label>Password *</label>
+          <input [type]="showPassword == true ? 'text': 'password'" matInput required name="password"
+                 [(ngModel)]="password">
+        </mat-form-field>
+        <div class="text-center">
+          <button type="submit" [disabled]="email && password ? false: true" mat-raised-button color="primary"
+                  class="btn-block sign-in">Sign up
+          </button>
+          <p class="m-2 no-account" (click)="backToLogin()">Back to login.</p>
+        </div>
+      </form>
+    </div>
+    <div class="restart-password-form p-1" *ngIf="action==='restartPassword'">
+      <form (submit)="restart(email)">
+        <h3 class="mb-3">Restart Password</h3>
+        <mat-form-field class="w-100 mb-1">
+          <label>Email *</label>
+          <input type="email" matInput required name="email" [(ngModel)]="email">
+        </mat-form-field>
+        <div class="text-center">
+          <button type="submit" [disabled]="email ? false: true" mat-raised-button color="primary"
+                  class="btn-block sign-in">Restart
+          </button>
+          <p class="m-2 no-account" (click)="backToLogin()">Back to login.</p>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</div>
+
+

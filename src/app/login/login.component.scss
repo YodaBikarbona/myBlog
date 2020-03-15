@@ -1,0 +1,92 @@
+@import "~src/app/home/home.component";
+
+.login-form, .register-form, .restart-password-form {
+  position: absolute;
+  width: 370px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  //border: 1px solid lightgray;
+  border-radius: 5px;
+  box-shadow: 0px 10px 20px rgba(128,128,128,0.5);
+  z-index: -1;
+  //background-color: #116466;
+  color: white;
+  @media (max-width: 767px) {
+    border: unset;
+    border-radius: unset;
+    box-shadow: unset;
+    transform: unset;
+    left: 0;
+    top: 0;
+    margin-top: 50%;
+    width: 85%;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding: 10px;
+  }
+}
+
+label {
+  color: black;
+}
+
+.sign-in {
+  background-color: #116466;
+  color: white;
+  @media (min-width: 900px) {
+    &:hover {
+      background-color: #2C3531;
+    }
+  }
+}
+
+.no-account {
+  color: black;
+}
+
+.first-page {
+  z-index: 1;
+  &:before {
+    display: none;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+/deep/ .mat-form-field.mat-focused .mat-form-field-label {
+  color: white !important;
+}
+
+/deep/ .mat-form-field-appearance-legacy .mat-form-field-label {
+  color: white !important;
+}
+
+/deep/ .mat-form-field.mat-form-field-invalid .mat-form-field-label {
+  color: #F44336 !important;
+}
+
+/deep/ .cdk-overlay-pane {
+  @media (max-width: 767px) {
+    min-width: unset !important;
+    width: 85% !important;
+  }
+}
+
+/deep/ .mat-select-value {
+  color: white !important;
+}
+
+/deep/ .mat-form-field.mat-focused .mat-form-field-ripple {
+  background-color: white !important;
+}
+
+/deep/ .mat-form-field-appearance-legacy .mat-form-field-underline {
+  background-color: white !important;
+}
+
+/deep/ .mat-select-arrow-wrapper {
+  background-color: white !important;
+}

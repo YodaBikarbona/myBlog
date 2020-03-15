@@ -1,0 +1,112 @@
+<div class="h-100 main">
+  <div class="row w-100 navigation">
+    <div class="col-md-4 mobileHidden"></div>
+    <div [className]="active == 'home' ? 'col-md-1 col-sm-3 home active' : 'col-md-1 col-sm-3 home inactive'">
+      <button type="button" mat-raised-button color="primary" class="btn-block" (click)="click('home')">Home</button>
+    </div>
+    <div [className]="active == 'gallery' ? 'col-md-1 col-sm-3 gallery active' : 'col-md-1 col-sm-3 gallery inactive'">
+      <button type="button" mat-raised-button color="primary" class="btn-block" (click)="click('gallery')">Gallery
+      </button>
+    </div>
+    <div [className]="active == 'posts' ? 'col-md-1 col-sm-3 posts active' : 'col-md-1 col-sm-3 posts inactive'">
+      <button type="button" mat-raised-button color="primary" class="btn-block" (click)="click('posts')">Posts</button>
+    </div>
+    <div
+      [className]="active == 'login' ? 'col-md-1 col-sm-3 login active' : 'col-md-1 col-sm-3 login inactive'">
+      <button type="button" mat-raised-button color="primary" class="btn-block" (click)="click('login')">Login
+      </button>
+    </div>
+    <div class="col-md-4 mobileHidden"></div>
+  </div>
+  <div class="first-page w-100">
+  </div>
+  <div class="content w-100">
+    <div class="row w-100">
+      <div class="col-md-4 col-sm-12 text-center welcome">
+        Posts
+      </div>
+      <div class="col-md-8 col-sm-12 text-center what-is-about pr-5">
+        <div class="row">
+          <div class="col-md-12 col-sm-12 post mb-1">
+            <div class="post-date mb-1 w-100">May 05, 2020</div>
+            <div class="post-title mb-1 w-100">Hello World!</div>
+            <div class="post-content mb-1 w-100">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla maximus bibendum ante, ut convallis ante tincidunt nec. In hac habitasse platea dictumst. Phasellus at sapien sagittis, convallis sem vel, ultricies dolor. Aliquam euismod vestibulum augue, quis tincidunt urna faucibus non. Aliquam erat volutpat. Fusce sit amet orci dictum, maximus odio sed, scelerisque risus. Nam consectetur accumsan orci, aliquet eleifend eros efficitur non. Sed metus dui, scelerisque nec fringilla non, lobortis a metus. Suspendisse potenti. Vivamus ultricies eget quam id tristique. Aliquam blandit molestie eros, sed lacinia nulla finibus eget. Quisque auctor hendrerit sapien vitae gravida. Aliquam quis erat interdum, porttitor neque et, mattis purus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Duis pharetra luctus mattis. Mauris ultricies turpis non libero mollis dapibus.
+Sed non varius elit. Nulla eget ullamcorper ligula. Pellentesque lacinia sem sed ligula efficitur, sed luctus eros sagittis. Curabitur euismod dictum nulla, at consequat metus tincidunt vestibulum. Curabitur viverra justo in bibendum convallis. Duis eleifend nisl sed tincidunt luctus. Quisque commodo magna sed nulla mattis pellentesque. Etiam mattis, arcu sit amet pulvinar vestibulum, quam nibh accumsan leo, ac rhoncus ligula urna at ipsum. Fusce efficitur elit et molestie viverra. Sed viverra lacus tristique eleifend sodales. Ut et risus facilisis, pellentesque arcu eget, aliquet sapien. Etiam at viverra urna.
+Maecenas auctor at nisi et commodo. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin in commodo ligula, nec auctor purus. Pellentesque imperdiet nibh nec malesuada tincidunt. Nullam libero risus, fringilla in iaculis ac, volutpat sit amet nisi. Proin dignissim rutrum massa eu placerat. Donec a dui ac nulla porta suscipit. Vestibulum rutrum ut sapien et porta. Nulla dignissim tellus in mattis ultricies. Proin at efficitur est. Sed pretium luctus placerat. Integer ullamcorper libero id purus egestas, a vestibulum nisi ultricies.
+Suspendisse in eros a sem gravida hendrerit. Duis nec nulla sollicitudin neque fringilla tempor. Nullam congue convallis nisl. Donec nec commodo augue. Integer condimentum erat quis ex eleifend consequat. Curabitur ut ante nec erat posuere tempor. Vestibulum tincidunt nisi in imperdiet varius. Pellentesque rutrum dui id libero congue dapibus. Aenean vestibulum facilisis libero, sed efficitur elit. Sed velit augue, pretium nec felis vitae, ornare condimentum neque. In ut nulla quis lorem suscipit vehicula. Praesent sit amet urna eu massa tempus semper sit amet eget elit. Integer eget lobortis turpis, eu tempor lorem. Proin et massa ligula. Curabitur nec dapibus lacus.
+Maecenas auctor condimentum luctus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas ac turpis bibendum, eleifend orci venenatis, molestie urna. Sed mi risus, ultrices at sagittis eget, aliquet semper nulla. Nunc ullamcorper, dui at vulputate condimentum, mauris erat condimentum turpis, ac fringilla elit metus eu sapien. Integer scelerisque finibus nisi, ut suscipit neque mattis quis. Aenean ac leo non mauris semper porta. Nullam scelerisque sed augue auctor lobortis. Praesent consectetur mattis diam, a egestas eros consequat luctus. Cras porta massa sed porta tincidunt. Suspendisse consectetur dictum elit a cursus. Donec at egestas massa. Nulla sagittis aliquet cursus. Donec pulvinar ligula urna, id porttitor lectus pretium et. Ut iaculis luctus mauris, quis accumsan justo consectetur vel.
+            </div>
+            <div class="post-read text-right">
+              <button type="button" mat-raised-button color="primary" class="btn-block read" (click)="click('home')">Read</button>
+            </div>
+          </div>
+          <div class="col-md-12 col-sm-12 post mb-1">
+            <div class="post-date mb-1 w-100">May 05, 2020</div>
+            <div class="post-title mb-1 w-100">Hello World!</div>
+            <div class="post-content mb-1 w-100">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla maximus bibendum ante, ut convallis ante tincidunt nec. In hac habitasse platea dictumst. Phasellus at sapien sagittis, convallis sem vel, ultricies dolor. Aliquam euismod vestibulum augue, quis tincidunt urna faucibus non. Aliquam erat volutpat. Fusce sit amet orci dictum, maximus odio sed, scelerisque risus. Nam consectetur accumsan orci, aliquet eleifend eros efficitur non. Sed metus dui, scelerisque nec fringilla non, lobortis a metus. Suspendisse potenti. Vivamus ultricies eget quam id tristique. Aliquam blandit molestie eros, sed lacinia nulla finibus eget. Quisque auctor hendrerit sapien vitae gravida. Aliquam quis erat interdum, porttitor neque et, mattis purus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Duis pharetra luctus mattis. Mauris ultricies turpis non libero mollis dapibus.
+Sed non varius elit. Nulla eget ullamcorper ligula. Pellentesque lacinia sem sed ligula efficitur, sed luctus eros sagittis. Curabitur euismod dictum nulla, at consequat metus tincidunt vestibulum. Curabitur viverra justo in bibendum convallis. Duis eleifend nisl sed tincidunt luctus. Quisque commodo magna sed nulla mattis pellentesque. Etiam mattis, arcu sit amet pulvinar vestibulum, quam nibh accumsan leo, ac rhoncus ligula urna at ipsum. Fusce efficitur elit et molestie viverra. Sed viverra lacus tristique eleifend sodales. Ut et risus facilisis, pellentesque arcu eget, aliquet sapien. Etiam at viverra urna.
+Maecenas auctor at nisi et commodo. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin in commodo ligula, nec auctor purus. Pellentesque imperdiet nibh nec malesuada tincidunt. Nullam libero risus, fringilla in iaculis ac, volutpat sit amet nisi. Proin dignissim rutrum massa eu placerat. Donec a dui ac nulla porta suscipit. Vestibulum rutrum ut sapien et porta. Nulla dignissim tellus in mattis ultricies. Proin at efficitur est. Sed pretium luctus placerat. Integer ullamcorper libero id purus egestas, a vestibulum nisi ultricies.
+Suspendisse in eros a sem gravida hendrerit. Duis nec nulla sollicitudin neque fringilla tempor. Nullam congue convallis nisl. Donec nec commodo augue. Integer condimentum erat quis ex eleifend consequat. Curabitur ut ante nec erat posuere tempor. Vestibulum tincidunt nisi in imperdiet varius. Pellentesque rutrum dui id libero congue dapibus. Aenean vestibulum facilisis libero, sed efficitur elit. Sed velit augue, pretium nec felis vitae, ornare condimentum neque. In ut nulla quis lorem suscipit vehicula. Praesent sit amet urna eu massa tempus semper sit amet eget elit. Integer eget lobortis turpis, eu tempor lorem. Proin et massa ligula. Curabitur nec dapibus lacus.
+Maecenas auctor condimentum luctus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas ac turpis bibendum, eleifend orci venenatis, molestie urna. Sed mi risus, ultrices at sagittis eget, aliquet semper nulla. Nunc ullamcorper, dui at vulputate condimentum, mauris erat condimentum turpis, ac fringilla elit metus eu sapien. Integer scelerisque finibus nisi, ut suscipit neque mattis quis. Aenean ac leo non mauris semper porta. Nullam scelerisque sed augue auctor lobortis. Praesent consectetur mattis diam, a egestas eros consequat luctus. Cras porta massa sed porta tincidunt. Suspendisse consectetur dictum elit a cursus. Donec at egestas massa. Nulla sagittis aliquet cursus. Donec pulvinar ligula urna, id porttitor lectus pretium et. Ut iaculis luctus mauris, quis accumsan justo consectetur vel.
+            </div>
+            <div class="post-read text-right">
+              <button type="button" mat-raised-button color="primary" class="btn-block read" (click)="click('home')">Read</button>
+            </div>
+          </div>
+          <div class="col-md-12 col-sm-12 post mb-1">
+            <div class="post-date mb-1 w-100">May 05, 2020</div>
+            <div class="post-title mb-1 w-100">Hello World!</div>
+            <div class="post-content mb-1 w-100">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla maximus bibendum ante, ut convallis ante tincidunt nec. In hac habitasse platea dictumst. Phasellus at sapien sagittis, convallis sem vel, ultricies dolor. Aliquam euismod vestibulum augue, quis tincidunt urna faucibus non. Aliquam erat volutpat. Fusce sit amet orci dictum, maximus odio sed, scelerisque risus. Nam consectetur accumsan orci, aliquet eleifend eros efficitur non. Sed metus dui, scelerisque nec fringilla non, lobortis a metus. Suspendisse potenti. Vivamus ultricies eget quam id tristique. Aliquam blandit molestie eros, sed lacinia nulla finibus eget. Quisque auctor hendrerit sapien vitae gravida. Aliquam quis erat interdum, porttitor neque et, mattis purus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Duis pharetra luctus mattis. Mauris ultricies turpis non libero mollis dapibus.
+Sed non varius elit. Nulla eget ullamcorper ligula. Pellentesque lacinia sem sed ligula efficitur, sed luctus eros sagittis. Curabitur euismod dictum nulla, at consequat metus tincidunt vestibulum. Curabitur viverra justo in bibendum convallis. Duis eleifend nisl sed tincidunt luctus. Quisque commodo magna sed nulla mattis pellentesque. Etiam mattis, arcu sit amet pulvinar vestibulum, quam nibh accumsan leo, ac rhoncus ligula urna at ipsum. Fusce efficitur elit et molestie viverra. Sed viverra lacus tristique eleifend sodales. Ut et risus facilisis, pellentesque arcu eget, aliquet sapien. Etiam at viverra urna.
+Maecenas auctor at nisi et commodo. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin in commodo ligula, nec auctor purus. Pellentesque imperdiet nibh nec malesuada tincidunt. Nullam libero risus, fringilla in iaculis ac, volutpat sit amet nisi. Proin dignissim rutrum massa eu placerat. Donec a dui ac nulla porta suscipit. Vestibulum rutrum ut sapien et porta. Nulla dignissim tellus in mattis ultricies. Proin at efficitur est. Sed pretium luctus placerat. Integer ullamcorper libero id purus egestas, a vestibulum nisi ultricies.
+Suspendisse in eros a sem gravida hendrerit. Duis nec nulla sollicitudin neque fringilla tempor. Nullam congue convallis nisl. Donec nec commodo augue. Integer condimentum erat quis ex eleifend consequat. Curabitur ut ante nec erat posuere tempor. Vestibulum tincidunt nisi in imperdiet varius. Pellentesque rutrum dui id libero congue dapibus. Aenean vestibulum facilisis libero, sed efficitur elit. Sed velit augue, pretium nec felis vitae, ornare condimentum neque. In ut nulla quis lorem suscipit vehicula. Praesent sit amet urna eu massa tempus semper sit amet eget elit. Integer eget lobortis turpis, eu tempor lorem. Proin et massa ligula. Curabitur nec dapibus lacus.
+Maecenas auctor condimentum luctus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas ac turpis bibendum, eleifend orci venenatis, molestie urna. Sed mi risus, ultrices at sagittis eget, aliquet semper nulla. Nunc ullamcorper, dui at vulputate condimentum, mauris erat condimentum turpis, ac fringilla elit metus eu sapien. Integer scelerisque finibus nisi, ut suscipit neque mattis quis. Aenean ac leo non mauris semper porta. Nullam scelerisque sed augue auctor lobortis. Praesent consectetur mattis diam, a egestas eros consequat luctus. Cras porta massa sed porta tincidunt. Suspendisse consectetur dictum elit a cursus. Donec at egestas massa. Nulla sagittis aliquet cursus. Donec pulvinar ligula urna, id porttitor lectus pretium et. Ut iaculis luctus mauris, quis accumsan justo consectetur vel.
+            </div>
+            <div class="post-read text-right">
+              <button type="button" mat-raised-button color="primary" class="btn-block read" (click)="click('home')">Read</button>
+            </div>
+          </div>
+          <div class="col-md-12 col-sm-12 post mb-1">
+            <div class="post-date mb-1 w-100">May 05, 2020</div>
+            <div class="post-title mb-1 w-100">Hello World!</div>
+            <div class="post-content mb-1 w-100">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla maximus bibendum ante, ut convallis ante tincidunt nec. In hac habitasse platea dictumst. Phasellus at sapien sagittis, convallis sem vel, ultricies dolor. Aliquam euismod vestibulum augue, quis tincidunt urna faucibus non. Aliquam erat volutpat. Fusce sit amet orci dictum, maximus odio sed, scelerisque risus. Nam consectetur accumsan orci, aliquet eleifend eros efficitur non. Sed metus dui, scelerisque nec fringilla non, lobortis a metus. Suspendisse potenti. Vivamus ultricies eget quam id tristique. Aliquam blandit molestie eros, sed lacinia nulla finibus eget. Quisque auctor hendrerit sapien vitae gravida. Aliquam quis erat interdum, porttitor neque et, mattis purus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Duis pharetra luctus mattis. Mauris ultricies turpis non libero mollis dapibus.
+Sed non varius elit. Nulla eget ullamcorper ligula. Pellentesque lacinia sem sed ligula efficitur, sed luctus eros sagittis. Curabitur euismod dictum nulla, at consequat metus tincidunt vestibulum. Curabitur viverra justo in bibendum convallis. Duis eleifend nisl sed tincidunt luctus. Quisque commodo magna sed nulla mattis pellentesque. Etiam mattis, arcu sit amet pulvinar vestibulum, quam nibh accumsan leo, ac rhoncus ligula urna at ipsum. Fusce efficitur elit et molestie viverra. Sed viverra lacus tristique eleifend sodales. Ut et risus facilisis, pellentesque arcu eget, aliquet sapien. Etiam at viverra urna.
+Maecenas auctor at nisi et commodo. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin in commodo ligula, nec auctor purus. Pellentesque imperdiet nibh nec malesuada tincidunt. Nullam libero risus, fringilla in iaculis ac, volutpat sit amet nisi. Proin dignissim rutrum massa eu placerat. Donec a dui ac nulla porta suscipit. Vestibulum rutrum ut sapien et porta. Nulla dignissim tellus in mattis ultricies. Proin at efficitur est. Sed pretium luctus placerat. Integer ullamcorper libero id purus egestas, a vestibulum nisi ultricies.
+Suspendisse in eros a sem gravida hendrerit. Duis nec nulla sollicitudin neque fringilla tempor. Nullam congue convallis nisl. Donec nec commodo augue. Integer condimentum erat quis ex eleifend consequat. Curabitur ut ante nec erat posuere tempor. Vestibulum tincidunt nisi in imperdiet varius. Pellentesque rutrum dui id libero congue dapibus. Aenean vestibulum facilisis libero, sed efficitur elit. Sed velit augue, pretium nec felis vitae, ornare condimentum neque. In ut nulla quis lorem suscipit vehicula. Praesent sit amet urna eu massa tempus semper sit amet eget elit. Integer eget lobortis turpis, eu tempor lorem. Proin et massa ligula. Curabitur nec dapibus lacus.
+Maecenas auctor condimentum luctus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas ac turpis bibendum, eleifend orci venenatis, molestie urna. Sed mi risus, ultrices at sagittis eget, aliquet semper nulla. Nunc ullamcorper, dui at vulputate condimentum, mauris erat condimentum turpis, ac fringilla elit metus eu sapien. Integer scelerisque finibus nisi, ut suscipit neque mattis quis. Aenean ac leo non mauris semper porta. Nullam scelerisque sed augue auctor lobortis. Praesent consectetur mattis diam, a egestas eros consequat luctus. Cras porta massa sed porta tincidunt. Suspendisse consectetur dictum elit a cursus. Donec at egestas massa. Nulla sagittis aliquet cursus. Donec pulvinar ligula urna, id porttitor lectus pretium et. Ut iaculis luctus mauris, quis accumsan justo consectetur vel.
+            </div>
+            <div class="post-read text-right">
+              <button type="button" mat-raised-button color="primary" class="btn-block read" (click)="click('home')">Read</button>
+            </div>
+          </div>
+          <div class="col-md-12 col-sm-12 post mb-1">
+            <div class="post-date mb-1 w-100">May 05, 2020</div>
+            <div class="post-title mb-1 w-100">Hello World!</div>
+            <div class="post-content mb-1 w-100">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla maximus bibendum ante, ut convallis ante tincidunt nec. In hac habitasse platea dictumst. Phasellus at sapien sagittis, convallis sem vel, ultricies dolor. Aliquam euismod vestibulum augue, quis tincidunt urna faucibus non. Aliquam erat volutpat. Fusce sit amet orci dictum, maximus odio sed, scelerisque risus. Nam consectetur accumsan orci, aliquet eleifend eros efficitur non. Sed metus dui, scelerisque nec fringilla non, lobortis a metus. Suspendisse potenti. Vivamus ultricies eget quam id tristique. Aliquam blandit molestie eros, sed lacinia nulla finibus eget. Quisque auctor hendrerit sapien vitae gravida. Aliquam quis erat interdum, porttitor neque et, mattis purus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Duis pharetra luctus mattis. Mauris ultricies turpis non libero mollis dapibus.
+Sed non varius elit. Nulla eget ullamcorper ligula. Pellentesque lacinia sem sed ligula efficitur, sed luctus eros sagittis. Curabitur euismod dictum nulla, at consequat metus tincidunt vestibulum. Curabitur viverra justo in bibendum convallis. Duis eleifend nisl sed tincidunt luctus. Quisque commodo magna sed nulla mattis pellentesque. Etiam mattis, arcu sit amet pulvinar vestibulum, quam nibh accumsan leo, ac rhoncus ligula urna at ipsum. Fusce efficitur elit et molestie viverra. Sed viverra lacus tristique eleifend sodales. Ut et risus facilisis, pellentesque arcu eget, aliquet sapien. Etiam at viverra urna.
+Maecenas auctor at nisi et commodo. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin in commodo ligula, nec auctor purus. Pellentesque imperdiet nibh nec malesuada tincidunt. Nullam libero risus, fringilla in iaculis ac, volutpat sit amet nisi. Proin dignissim rutrum massa eu placerat. Donec a dui ac nulla porta suscipit. Vestibulum rutrum ut sapien et porta. Nulla dignissim tellus in mattis ultricies. Proin at efficitur est. Sed pretium luctus placerat. Integer ullamcorper libero id purus egestas, a vestibulum nisi ultricies.
+Suspendisse in eros a sem gravida hendrerit. Duis nec nulla sollicitudin neque fringilla tempor. Nullam congue convallis nisl. Donec nec commodo augue. Integer condimentum erat quis ex eleifend consequat. Curabitur ut ante nec erat posuere tempor. Vestibulum tincidunt nisi in imperdiet varius. Pellentesque rutrum dui id libero congue dapibus. Aenean vestibulum facilisis libero, sed efficitur elit. Sed velit augue, pretium nec felis vitae, ornare condimentum neque. In ut nulla quis lorem suscipit vehicula. Praesent sit amet urna eu massa tempus semper sit amet eget elit. Integer eget lobortis turpis, eu tempor lorem. Proin et massa ligula. Curabitur nec dapibus lacus.
+Maecenas auctor condimentum luctus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas ac turpis bibendum, eleifend orci venenatis, molestie urna. Sed mi risus, ultrices at sagittis eget, aliquet semper nulla. Nunc ullamcorper, dui at vulputate condimentum, mauris erat condimentum turpis, ac fringilla elit metus eu sapien. Integer scelerisque finibus nisi, ut suscipit neque mattis quis. Aenean ac leo non mauris semper porta. Nullam scelerisque sed augue auctor lobortis. Praesent consectetur mattis diam, a egestas eros consequat luctus. Cras porta massa sed porta tincidunt. Suspendisse consectetur dictum elit a cursus. Donec at egestas massa. Nulla sagittis aliquet cursus. Donec pulvinar ligula urna, id porttitor lectus pretium et. Ut iaculis luctus mauris, quis accumsan justo consectetur vel.
+            </div>
+            <div class="post-read text-right">
+              <button type="button" mat-raised-button color="primary" class="btn-block read" (click)="click('home')">Read</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+    </div>
+  </div>
+  <div class="footer pl-1 pr-1">
+
+  </div>
+  <button *ngIf="isShow" type="button" mat-raised-button color="primary" class="btn-block gotoTop" (click)="gotoTop()"><i class="fa fa-arrow-up"></i></button>
+</div>
+
+
