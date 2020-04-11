@@ -1,0 +1,106 @@
+@import "~src/app/home/home.component";
+@import "~src/app/gallery/gallery.component";
+
+.first-page {
+  background-color: white;
+  z-index: 1;
+  height: unset;
+  min-height: 100%;
+  &:before {
+    display: none;
+  }
+}
+
+.img {
+  filter: grayscale(0);
+  transition: none;
+  &:hover {
+    filter: grayscale(0);
+    transition: none;
+    transform: none;
+  }
+  @media (max-width: 899px) {
+    width: 100%;
+  }
+}
+
+.row {
+  //width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+i {
+  font-size: 50px;
+  line-height: 1;
+}
+
+.views, .actions {
+  font-size: 25px;
+  height: 50px;
+  position: relative;
+  width: 50%;
+  display: inline-block;
+  p {
+    //position: absolute;
+    margin-top: 11px;
+    display: inline-block;
+  }
+}
+
+.description {
+  text-align: justify;
+  border-bottom: 1px solid #eee;
+}
+
+.gotoTop {
+  z-index: 2;
+}
+
+.newComment {
+  border: 1px solid #eee;
+  textarea {
+    width: 100%;
+    height: 100px;
+    text-align: left;
+    border: none;
+    resize: none;
+  }
+}
+
+.addComment {
+  width: 100px;
+  bottom: 5px;
+  font-size: 10px;
+  text-align: center;
+  outline: none;
+  background-color: #116466;
+  color: white;
+  &:hover {
+    background-color: #2C3531;
+  }
+  @media (max-width: 899px) {
+    width: 100%;
+  }
+}
+
+.img {
+  height: auto;
+}
+
+.main {
+  @media (max-width: 899px) {
+    background-color: white;
+  }
+}
+
+.imageBox {
+  max-height: none;
+  padding: 10px;
+}
+
+.remove {
+  @media (max-width: 899px) {
+    display: none;
+  }
+}

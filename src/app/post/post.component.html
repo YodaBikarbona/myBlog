@@ -1,0 +1,42 @@
+<div class="first-page w-100">
+  <div class="row">
+    <div class="col-md-4 col-sm-12 postBox remove">
+    </div>
+    <div class="col-md-4 col-sm-12 postBox" *ngIf="post">
+      <div class="w-100 imageBox" *ngIf="post.image">
+        <img class="img"
+             src="{{post.image.google_drive_link}}">
+             <!--src="http://127.0.0.1:8000/media/{{post.google_drive_link}}">-->
+
+      </div>
+      <div class="w-100 post-date mt-1">{{post.created}}</div>
+      <div class="w-100 post-title mt-1">{{post.title}}</div>
+      <div class="w-100 post-content mt-1">{{post.content}}</div>
+      <div class="w-100 mt-1" *ngIf="!post.comment">
+        <p>Comments not allowed!</p>
+      </div>
+      <div class="w-100 mt-1" *ngIf="post.comment">
+        <div class="mb-1" *ngFor="let comment of post.comments">
+          {{comment.user.user_name}}: {{comment.content}}
+        </div>
+        <div class="pl-1 pr-1 newComment">
+          <!--<p>{{commentLength}}/128</p>-->
+          <textarea type="text" [(ngModel)]="comment" maxlength="128" placeholder="Type a comment..."
+                    (ngModelChange)="calculateCommentLength()">
+          </textarea>
+        </div>
+        <div class="w-100 text-right mt-1">
+          <p *ngIf="errorMessage" class="text-center w-100">{{errorMessage}}</p>
+          <button type="button" mat-raised-button color="primary" class="btn-block addComment pl-1 pr-1"
+                  (click)="addComment()">Add comment
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 col-sm-12 postBox remove">
+    </div>
+  </div>
+</div>
+<div class="footer pl-1 pr-1">
+</div>
+

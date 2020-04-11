@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
+import {LocationStrategy} from '@angular/common';
+import {Service} from '../services/service';
+import {AuthenticationRequest} from '../model';
+import {AuthenticationService} from '../services/authentication.service';
+import {ApplicationService} from '../application.service';
 
 @Component({
   selector: 'app-login',
@@ -8,44 +13,77 @@ import {Router} from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  active = 'login';
-  action = 'login';
 
-  email = '';
   username = '';
   password = '';
-  confirmPassword = '';
 
+  signUpButton = document.getElementById('signUp');
+  signInButton = document.getElementById('signIn');
+  container = document.getElementById('container');
 
-  constructor(public router: Router) { }
+  loginData = {
+    'username': '',
+    'password': ''
+  };
+
+  registerData = {
+    'username': '',
+    'email': '',
+    'password': '',
+    'confirmPassword': ''
+  };
+
+  constructor(public router: Router, private locationStrategy: LocationStrategy, private service: ApplicationService, private authService: AuthenticationService) { }
 
   ngOnInit() {
+    history.pushState(null, null, location.href);
+    this.locationStrategy.onPopState(() => {
+          history.pushState(null, null, location.href);
+        });
   }
 
-  restartFields() {
-    this.email = '';
-    this.username = '';
-    this.password = '';
-    this.confirmPassword = '';
+  login() {
+    // let request = new AuthenticationRequest(this.loginData.username, this.loginData.password);
+    // this.authService.authenticate(request).subscribe(
+    //   res => {
+    //     if (localStorage.getItem('auth-token')) {
+    //       this.service.updateToken(localStorage.getItem('auth-token'));
+    //       this.router.navigate(['home']);
+    //     }
+    //   }, err => {
+    //   }
+    // );
   }
 
-  click(section) {
-    this.active = section;
-    this.router.navigate([this.active]);
+
+
+  // signUp() {
+  //   this.router.navigate(['registration']);
+  // }
+  //
+  // restartPassword() {
+  //   this.router.navigate(['restart-password']);
+  // }
+
+  signUpButtonSwap() {
+    document.getElementById('container').classList.add('right-panel-active');
+    this.loginData.username = '';
+    this.loginData.password = '';
   }
 
-  backToLogin() {
-    this.restartFields();
-    this.action = 'login';
+  signInButtonSwap() {
+    document.getElementById('container').classList.remove('right-panel-active');
+    this.registerData.username = '';
+    this.registerData.email = '';
+    this.registerData.password = '';
+    this.registerData.confirmPassword = '';
   }
 
-  goToRegistration() {
-    this.restartFields();
-    this.action = 'registration';
-  }
-
-  restartPassword() {
-    this.restartFields();
-    this.action = 'restartPassword';
-  }
+// signUpButton.addEventListener('click', () => {
+// 	container.classList.add("right-panel-active");
+// });
+//
+// signInButton.addEventListener('click', () => {
+// 	container.classList.remove("right-panel-active");
+// });
 }

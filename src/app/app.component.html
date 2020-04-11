@@ -1,1 +1,32 @@
-<router-outlet></router-outlet>
+<div class="h-100 main" id="main">
+  <div class="row w-100 navigation">
+    <div class="col-md-4 mobileHidden"></div>
+    <div [className]="active == 'home' ? 'col-md-1 col-sm-3 col-xs-3 home active' : 'col-md-1 col-sm-3 col-xs-3 home inactive'">
+      <button type="button" mat-raised-button color="primary" class="btn-block" (click)="click('home')">Home</button>
+    </div>
+    <div [className]="active == 'gallery' ? 'col-md-1 col-sm-3 col-xs-3 gallery active' : 'col-md-1 col-sm-3 col-xs-3 gallery inactive'">
+      <button type="button" mat-raised-button color="primary" class="btn-block" (click)="click('gallery')">Gallery
+      </button>
+    </div>
+    <div [className]="active == 'posts' ? 'col-md-1 col-sm-3 col-xs-3 posts active' : 'col-md-1 col-sm-3 col-xs-3 posts inactive'">
+      <button type="button" mat-raised-button color="primary" class="btn-block" (click)="click('posts')">Posts</button>
+    </div>
+    <div
+      [className]="active == 'login' ? 'col-md-1 col-sm-3 col-xs-3 login active' : 'col-md-1 col-sm-3 col-xs-3 login inactive'" *ngIf="!token">
+      <button type="button" mat-raised-button color="primary" class="btn-block" (click)="click('login')">Login
+      </button>
+    </div>
+    <div
+      [className]="active == 'login' ? 'col-md-1 col-sm-3 col-xs-3 login active' : 'col-md-1 col-sm-3 col-xs-3 login inactive'" *ngIf="token">
+      <button type="button" mat-raised-button color="primary" class="btn-block" (click)="click('login')">Profile
+      </button>
+    </div>
+    <div class="col-md-4 mobileHidden"></div>
+  </div>
+  <div class="row w-100 navigation-blur">
+    <div class="col-md-12"></div>
+  </div>
+  <router-outlet>
+  </router-outlet>
+  <button *ngIf="isShow" type="button" mat-raised-button color="primary" class="btn-block gotoTop" (click)="gotoTop($event)"><i class="fa fa-arrow-up"></i></button>
+</div>

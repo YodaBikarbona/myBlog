@@ -1,86 +1,120 @@
-<div class="h-100 main">
-  <div class="row w-100 navigation">
-    <div class="col-md-4 mobileHidden"></div>
-    <div [className]="active == 'home' ? 'col-md-1 col-sm-3 home active' : 'col-md-1 col-sm-3 home inactive'">
-      <button type="button" mat-raised-button color="primary" class="btn-block" (click)="click('home')">Home</button>
-    </div>
-    <div [className]="active == 'gallery' ? 'col-md-1 col-sm-3 gallery active' : 'col-md-1 col-sm-3 gallery inactive'">
-      <button type="button" mat-raised-button color="primary" class="btn-block" (click)="click('gallery')">Gallery
-      </button>
-    </div>
-    <div [className]="active == 'posts' ? 'col-md-1 col-sm-3 posts active' : 'col-md-1 col-sm-3 posts inactive'">
-      <button type="button" mat-raised-button color="primary" class="btn-block" (click)="click('posts')">Posts</button>
-    </div>
-    <div
-      [className]="active == 'login' ? 'col-md-1 col-sm-3 login active' : 'col-md-1 col-sm-3 login inactive'">
-      <button type="button" mat-raised-button color="primary" class="btn-block" (click)="click('login')">Login
-      </button>
-    </div>
-    <div class="col-md-4 mobileHidden"></div>
-  </div>
-  <div class="first-page w-100">
-    <div class="login-form p-1" *ngIf="action==='login'">
-      <form (submit)="login(email, password)">
-        <h3 class="mb-3">Login</h3>
-        <mat-form-field class="w-100 mb-1">
-          <label>Username *</label>
-          <input type="text" matInput required name="email" [(ngModel)]="email">
-        </mat-form-field>
-        <mat-form-field class="w-100 mb-1">
-          <label>Password *</label>
-          <input [type]="showPassword == true ? 'text': 'password'" matInput required name="password"
-                 [(ngModel)]="password">
-        </mat-form-field>
-        <div class="text-center">
-          <button type="submit" [disabled]="email && password ? false: true" mat-raised-button color="primary"
-                  class="btn-block sign-in">Sign in
-          </button>
-          <p class="m-2 no-account">Don't have an account? <a (click)="goToRegistration()"> Sign up</a></p>
-          <p class="m-2"><a (click)="restartPassword()">Forgot your password</a></p>
-        </div>
-      </form>
-    </div>
-    <div class="register-form p-1" *ngIf="action==='registration'">
-    <form (submit)="registration(username, email, password)">
-        <h3 class="mb-3">Registration</h3>
-        <mat-form-field class="w-100 mb-1">
-          <label>Username *</label>
-          <input type="text" matInput required name="username" [(ngModel)]="username">
-        </mat-form-field>
-        <mat-form-field class="w-100 mb-1">
-            <label>Email *</label>
-            <input type="email" matInput required name="email" [(ngModel)]="email">
-        </mat-form-field>
-        <mat-form-field class="w-100 mb-1">
-          <label>Password *</label>
-          <input [type]="showPassword == true ? 'text': 'password'" matInput required name="password"
-                 [(ngModel)]="password">
-        </mat-form-field>
-        <div class="text-center">
-          <button type="submit" [disabled]="email && password ? false: true" mat-raised-button color="primary"
-                  class="btn-block sign-in">Sign up
-          </button>
-          <p class="m-2 no-account" (click)="backToLogin()">Back to login.</p>
-        </div>
-      </form>
-    </div>
-    <div class="restart-password-form p-1" *ngIf="action==='restartPassword'">
-      <form (submit)="restart(email)">
-        <h3 class="mb-3">Restart Password</h3>
-        <mat-form-field class="w-100 mb-1">
-          <label>Email *</label>
-          <input type="email" matInput required name="email" [(ngModel)]="email">
-        </mat-form-field>
-        <div class="text-center">
-          <button type="submit" [disabled]="email ? false: true" mat-raised-button color="primary"
-                  class="btn-block sign-in">Restart
-          </button>
-          <p class="m-2 no-account" (click)="backToLogin()">Back to login.</p>
-        </div>
-      </form>
-    </div>
-  </div>
+<div class="first-page w-100">
+  <!--<div class="login-register-panel">-->
+  <!--<div class="login-form p-1">-->
+    <!--<form (submit)="login(username, password)">-->
+      <!--<h3 class="mb-3 title">Login</h3>-->
+      <!--<mat-form-field class="w-100 mb-1">-->
+        <!--<label>Username *</label>-->
+        <!--<input type="text" matInput required name="username" [(ngModel)]="username">-->
+      <!--</mat-form-field>-->
+      <!--<mat-form-field class="w-100 mb-1">-->
+        <!--<label>Password *</label>-->
+        <!--<input type="password" matInput required name="password"-->
+               <!--[(ngModel)]="password">-->
+      <!--</mat-form-field>-->
+      <!--<div class="text-center">-->
+        <!--<button type="submit" [disabled]="username && password ? false: true" mat-raised-button color="primary"-->
+                <!--class="btn-block sign-in">Sign in-->
+        <!--</button>-->
+        <!--<span></span>-->
+        <!--<button type="button" mat-raised-button color="primary"-->
+                <!--class="btn-block sign-up" (click)="signUp()">Sign up-->
+        <!--</button>-->
+        <!--<p class="m-2 w-100"><a (click)="restartPassword()">Forgot your password?</a></p>-->
+        <!--&lt;!&ndash;<p class="m-2 no-account w-100">Don't have an account?</p>&ndash;&gt;-->
+      <!--</div>-->
+    <!--</form>-->
+  <!--</div>-->
+  <!--<div class="login-opacity-background p-1">-->
+    <!--<div class="sign-up-panel">-->
+      <!--Hello-->
+    <!--</div>-->
+  <!--</div>-->
+  <!--<div class="register-form p-1">-->
+    <!--<form (submit)="registration(username, email, password)">-->
+      <!--<h3 class="mb-3">Registration</h3>-->
+      <!--<mat-form-field class="w-100 mb-1">-->
+        <!--<label>Username *</label>-->
+        <!--<input type="text" matInput required name="username" [(ngModel)]="username">-->
+      <!--</mat-form-field>-->
+      <!--<mat-form-field class="w-100 mb-1">-->
+        <!--<label>Email *</label>-->
+        <!--<input type="email" matInput required name="email" [(ngModel)]="email">-->
+      <!--</mat-form-field>-->
+      <!--<mat-form-field class="w-100 mb-1">-->
+        <!--<label>Password *</label>-->
+        <!--<input [type]="showPassword == true ? 'text': 'password'" matInput required name="password"-->
+               <!--[(ngModel)]="password">-->
+      <!--</mat-form-field>-->
+      <!--<div class="text-center">-->
+        <!--<button type="submit" [disabled]="email && password ? false: true" mat-raised-button color="primary"-->
+                <!--class="btn-block sign-up">Sign up-->
+        <!--</button>-->
+      <!--</div>-->
+      <!--<div class="text-center mt-1">-->
+        <!--<button type="submit" mat-raised-button color="primary"-->
+                <!--class="btn-block back-to-login mt-1" (click)="backToLogin()">Back to login.-->
+        <!--</button>-->
+      <!--</div>-->
+    <!--</form>-->
+  <!--</div>-->
+  <!--<div class="login-opacity-background p-1">-->
+    <!--<div class="sign-in-panel">-->
+      <!--Hello-->
+    <!--</div>-->
+  <!--</div>-->
+    <!--</div>-->
 
+
+
+  <div class="container" id="container">
+	<div class="form-container sign-up-container">
+		<form action="#">
+			<h1>Create Account</h1>
+			<!--<div class="social-container">-->
+				<!--<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>-->
+				<!--<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>-->
+				<!--<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>-->
+			<!--</div>-->
+			<!--<span>or use your email for registration</span>-->
+			<input type="text" placeholder="Username" name="username" [(ngModel)]="registerData.username"/>
+			<input type="email" placeholder="Email" name="email" [(ngModel)]="registerData.email"/>
+			<input type="password" placeholder="Password" name="password" [(ngModel)]="registerData.password"/>
+      <input type="password" placeholder="Confirm password" name="confirmPassword" [(ngModel)]="registerData.confirmPassword"/>
+			<button>Sign Up</button>
+		</form>
+	</div>
+	<div class="form-container sign-in-container">
+		<form action="#">
+			<h1>Sign in</h1>
+			<!--<div class="social-container">-->
+				<!--<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>-->
+				<!--<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>-->
+				<!--<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>-->
+			<!--</div>-->
+			<!--<span>or use your account</span>-->
+			<input type="text" placeholder="Username" name="username" [(ngModel)]="loginData.username"/>
+			<input type="password" placeholder="Password" name="password" [(ngModel)]="loginData.password"/>
+			<a href="#">Forgot your password?</a>
+			<button (click)="login()">Sign In</button>
+		</form>
+	</div>
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-left">
+				<h1>Welcome Back!</h1>
+				<!--<p>To keep connected with us please login with your personal info</p>-->
+        <p>To comment posts and images please login with your personal info?</p>
+				<button class="ghost" id="signIn" (click)="signInButtonSwap()">Sign In</button>
+			</div>
+			<div class="overlay-panel overlay-right">
+				<h1>Hello, Friend!</h1>
+				<!--<p>Enter your personal details and start journey with us</p>-->
+        <p>Don't have an account?</p>
+				<button class="ghost" id="signUp" (click)="signUpButtonSwap()">Sign Up</button>
+			</div>
+		</div>
+	</div>
 </div>
-
-
+  <div class="container-opacity" id="container"></div>
+</div>

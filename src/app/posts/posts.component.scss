@@ -1,1 +1,54 @@
 @import "~src/app/home/home.component";
+
+.postsPagination {
+  i {
+    background-color: white;
+    border: 1px solid #116466;
+    color: #2C3531;
+    border-radius: 0;
+    &:hover {
+      //background-color: #2C3531;
+      background-color: #116466;
+      color: white;
+      transition: background-color 500ms ease, color 500ms ease;
+    }
+    @media (max-width: 767px) {
+      background-color: #116466;
+      color: white;
+    }
+  }
+}
+
+.hidden {
+  @media (max-width: 899px) {
+    display: none;
+  }
+}
+
+.disabled {
+  i {
+    background-color: silver;
+    color: black;
+    &:hover {
+      background-color: silver;
+      color: black;
+    }
+  }
+}
+
+.content {
+  min-height: 100%;
+}
+
+.welcome {
+  margin-top: 100px;
+}
+
+.what-is-about {
+  @media (min-width: 768px) {
+    margin-top: 100px;
+  }
+  .row {
+    margin-top: 0;
+  }
+}

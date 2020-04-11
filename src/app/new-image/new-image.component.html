@@ -1,0 +1,29 @@
+<div class="first-page w-100">
+  <div class="upload-image p-1">
+    <form (submit)="upload(description, file)">
+      <h3 class="mb-3">Login</h3>
+      <mat-form-field class="w-100 mb-1">
+        <label>Description *</label>
+        <input type="text" matInput required name="description" [(ngModel)]="description">
+      </mat-form-field>
+      <!--<mat-form-field class="w-100 mb-1">-->
+        <!--&lt;!&ndash;<input type="file" matInput required name="file"&ndash;&gt;-->
+               <!--&lt;!&ndash;[(ngModel)]="file">&ndash;&gt;-->
+        <!--<button type="button" md-button (click)="imgFileInput.click()">Add a photo</button>-->
+        <!--<input hidden type="file" #imgFileInput (change)="previewImage($event)"/>-->
+      <!--</mat-form-field>-->
+      <input type="file" hidden #imageInput (change)="image_selected($event)">
+      <button class="newImage" mat-button (click)="imageInput.click()">Change picture</button><p *ngIf="imageName" class="imageName ml-1">{{imageName}}</p>
+      <div class="text-center mt-1">
+        <button type="submit" [disabled]="description && file ? false: true" mat-raised-button color="primary"
+                class="btn-block addImage">Upload
+        </button>
+      </div>
+      <div class="text-center mt-1">
+        <button type="submit" mat-raised-button color="primary"
+                class="btn-block back-to-gallery mt-1" (click)="backToGallery()">Back to gallery.
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

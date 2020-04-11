@@ -33,6 +33,17 @@ import { GalleryComponent } from './gallery/gallery.component';
 import { PostsComponent } from './posts/posts.component';
 import { LoginComponent } from './login/login.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { RegistrationComponent } from './registration/registration.component';
+import { RestartPasswordComponent } from './restart-password/restart-password.component';
+import { ActivationAccountComponent } from './activation-account/activation-account.component';
+import { PostComponent } from './post/post.component';
+import { PictureComponent } from './picture/picture.component';
+import {Service} from './services/service';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {JWTHeaderInterceptor} from './services/authorization-header.interceptor';
+
+import { CarouselModule, WavesModule } from 'angular-bootstrap-md';
+import { NewImageComponent } from './new-image/new-image.component';
 
 @NgModule({
   declarations: [
@@ -40,13 +51,20 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     HomeComponent,
     GalleryComponent,
     PostsComponent,
-    LoginComponent
+    LoginComponent,
+    RegistrationComponent,
+    RestartPasswordComponent,
+    ActivationAccountComponent,
+    PostComponent,
+    PictureComponent,
+    NewImageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
+    HttpClientModule,
     ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'}),
     MatIconModule, // Angular material
     MatFormFieldModule,
@@ -71,9 +89,12 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     MatCheckboxModule,
     MatDialogModule,
     MatProgressBarModule,
+    CarouselModule,
+    WavesModule,
   ],
-  entryComponents: [],
-  providers: [],
+  entryComponents: [
+  ],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: JWTHeaderInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

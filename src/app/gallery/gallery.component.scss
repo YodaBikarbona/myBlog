@@ -1,1 +1,80 @@
 @import "~src/app/home/home.component";
+
+.first-page {
+  background-color: white;
+  z-index: 1;
+  height: unset;
+  min-height: 100%;
+  &:before {
+    display: none;
+  }
+}
+
+.row {
+  padding-top: 20%;
+  padding-left: 5%;
+  padding-right: 5%;
+  @media (min-width: 900px) {
+    padding-top: 5%;
+  }
+}
+
+.imageBox {
+  height: auto;
+  padding: 5px;
+
+  @media (min-width: 900px) {
+    padding: 10px;
+    min-height: 200px;
+    max-height: 200px;
+  }
+  @media (max-width: 899px) {
+    min-height: 100px;
+    max-height: 100px;
+  }
+  //border: 1px solid black;
+}
+
+.img {
+  margin: auto;
+  height: 100%;
+  width: 100%;
+  filter: grayscale(100%);
+  transition: filter 500ms ease;
+  @media (max-width: 899px) {
+    width: 95%;
+  }
+  &:hover {
+    filter: grayscale(0);
+    transition: filter 500ms ease;
+    @media (min-width: 900px) {
+      transform: scale(1.1);
+      transition: filter 500ms ease, transform 500ms ease;
+    }
+
+
+  }
+}
+
+.newImage {
+  width: 100px;
+  bottom: 5px;
+  font-size: 10px;
+  text-align: center;
+  outline: none;
+  background-color: white;
+  border: 1px solid #116466;
+  color: #2C3531;
+  border-radius: 0;
+  &:hover {
+    //background-color: #2C3531;
+    background-color: #116466;
+    color: white;
+    transition: background-color 500ms ease, color 500ms ease;
+  }
+  @media (max-width: 767px) {
+    background-color: #116466;
+    color: white;
+    width: 100%;
+  }
+}

@@ -1,0 +1,57 @@
+@import "~src/app/home/home.component";
+//@import "~src/app/gallery/gallery.component";
+
+
+.upload-image {
+  position: absolute;
+  width: 370px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  //border: 1px solid lightgray;
+  border-radius: 5px;
+  box-shadow: 0px 10px 20px rgba(128,128,128,0.5);
+  z-index: 1;
+  background-color: #116466;
+  opacity: 0.7;
+  color: white;
+  @media (max-width: 767px) {
+    border: unset;
+    border-radius: unset;
+    box-shadow: unset;
+    transform: unset;
+    left: 0;
+    top: 0;
+    margin-top: 50%;
+    width: 85%;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding: 10px;
+  }
+}
+
+.back-to-gallery, .addImage {
+  background-color: #116466;
+  color: white;
+  border: 1px solid black;
+  @media (min-width: 900px) {
+    &:hover {
+      background-color: #2C3531;
+    }
+  }
+}
+
+.first-page {
+  z-index: 1;
+  &:before {
+    display: none;
+  }
+}
+
+label {
+  color: black;
+}
+
+.imageName {
+  display: inline-block;
+}

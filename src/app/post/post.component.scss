@@ -1,0 +1,84 @@
+@import "~src/app/home/home.component";
+
+.first-page {
+  background-color: white;
+  z-index: 1;
+  height: unset;
+  min-height: 100%;
+  &:before {
+    display: none;
+  }
+}
+
+.img {
+  height: auto;
+  width: 100%;
+}
+
+.main {
+  @media (max-width: 899px) {
+    background-color: white;
+  }
+}
+
+.imageBox {
+  max-height: none;
+}
+
+.remove {
+  @media (max-width: 899px) {
+    display: none;
+  }
+}
+
+
+.postBox {
+  height: auto;
+  padding: 10px;
+  margin-top: 10%;
+
+  @media (min-width: 900px) {
+    padding: 10px;
+    min-height: 200px;
+    //max-height: 200px;
+  }
+  @media (max-width: 899px) {
+    min-height: 100px;
+    //max-height: 100px;
+  }
+}
+.post-content {
+  height: unset;
+  text-align: justify;
+  border-bottom: 1px solid #eee;
+  &:after {
+    display: none;
+  }
+}
+
+.newComment {
+  border: 1px solid #eee;
+  textarea {
+    width: 100%;
+    height: 100px;
+    text-align: left;
+    border: none;
+    resize: none;
+  }
+}
+
+.addComment {
+  width: 100px;
+  bottom: 5px;
+  font-size: 10px;
+  text-align: center;
+  outline: none;
+  background-color: #116466;
+  color: white;
+  &:hover {
+    background-color: #2C3531;
+  }
+  @media (max-width: 899px) {
+    width: 100%;
+  }
+}
