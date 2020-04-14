@@ -282,6 +282,10 @@ input:-webkit-autofill {
 	width: 768px;
 	max-width: 100%;
 	min-height: 480px;
+  @media (max-width: 767px) {
+    width: 90%;
+    //padding: 10px;
+  }
 }
 
 .form-container {
@@ -295,6 +299,9 @@ input:-webkit-autofill {
 	left: 0;
 	width: 50%;
 	z-index: 2;
+  @media (max-width: 767px) {
+    width: 100%;
+  }
 }
 
 .container.right-panel-active .sign-in-container {
@@ -306,6 +313,10 @@ input:-webkit-autofill {
 	width: 50%;
 	opacity: 0;
 	z-index: 1;
+  @media (max-width: 767px) {
+    width: 100%;
+    opacity: 1;
+  }
 }
 
 .container.right-panel-active .sign-up-container {
@@ -427,4 +438,48 @@ input:-webkit-autofill {
 	margin: 0 5px;
 	height: 40px;
 	width: 40px;
+}
+
+.hidden {
+  @media (max-width: 767px) {
+    display: none;
+  }
+}
+
+.desktopHidden {
+  margin-top: 10px;
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .sign-in-container {
+    z-index: 2;
+    transition: z-index 1s step-end;
+  }
+  .sign-up-container {
+    z-index: 1;
+    transition: z-index 1s step-end;
+  }
+  .sign-in-container.hide {
+    animation: goBackRight 2s ease-in-out;
+    z-index: 0;
+  }
+  .sign-up-container.hide {
+    animation: goBackLeft 2s ease-in-out;
+    z-index: 0;
+  }
+}
+
+@keyframes goBackRight {
+  0% { transform: translateX(0px) rotateY(0deg) }
+  50% { transform: translateX(280px) rotateY(-90deg) }
+  100% { transform: translateX(0px) rotateY(0deg) }
+}
+
+@keyframes goBackLeft {
+  0% { transform: translateX(0px) rotateY(0deg) }
+  50% { transform: translateX(-280px) rotateY(90deg) }
+  100% { transform: translateX(0px) rotateY(0deg) }
 }

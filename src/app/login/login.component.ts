@@ -66,13 +66,23 @@ export class LoginComponent implements OnInit {
   // }
 
   signUpButtonSwap() {
-    document.getElementById('container').classList.add('right-panel-active');
+    if ( screen.width > 767) {
+      document.getElementById('container').classList.add('right-panel-active');
+    } else {
+      document.getElementById('sign-up-form-container').classList.remove('hide');
+      document.getElementById('sign-in-form-container').classList.add('hide');
+    }
     this.loginData.username = '';
     this.loginData.password = '';
   }
 
   signInButtonSwap() {
-    document.getElementById('container').classList.remove('right-panel-active');
+    if ( screen.width > 767) {
+      document.getElementById('container').classList.remove('right-panel-active');
+    } else {
+      document.getElementById('sign-in-form-container').classList.remove('hide');
+      document.getElementById('sign-up-form-container').classList.add('hide');
+    }
     this.registerData.username = '';
     this.registerData.email = '';
     this.registerData.password = '';
