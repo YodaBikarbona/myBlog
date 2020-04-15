@@ -31,7 +31,11 @@
         <div class="col-md-12 col-sm-12 post mb-1" *ngFor="let post of posts">
           <div class="post-date mb-1 w-100">{{post.created}}</div>
           <div class="post-title mb-1 w-100">{{post.title}}</div>
-          <div class="post-content mb-1 w-100">{{post.content}}</div>
+          <div class="post-content mb-1 w-100">
+            <div class="w-100" *ngFor="let tag of post.content">
+              <p class="paragraphTag" *ngIf="tag.tag === 'p'">{{tag.content}}</p>
+            </div>
+          </div>
           <div class="post-read text-right">
             <button type="button" mat-raised-button color="primary" class="btn-block read" (click)="readPost(post)">
               Read
@@ -53,7 +57,7 @@
           <div class="col-md-1 col-sm-2 col-xs-2 text-left mb-1" *ngIf="index > 0">
             <i class="fa fa-angle-left" aria-hidden="true" (click)="previous()"></i>
           </div>
-          <div class="col-md-8 col-sm-4 col-xs-4 text-center mb-1">
+          <div class="col-md-8 col-sm-4 col-xs-4 text-center mb-1 page">
             Page {{index + 1 }}/{{maxIndex + 1}}
           </div>
           <div class="col-md-1 col-sm-2 col-xs-2 text-right mb-1" *ngIf="index < maxIndex">

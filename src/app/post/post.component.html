@@ -11,7 +11,15 @@
       </div>
       <div class="w-100 post-date mt-1">{{post.created}}</div>
       <div class="w-100 post-title mt-1">{{post.title}}</div>
-      <div class="w-100 post-content mt-1">{{post.content}}</div>
+      <div class="w-100 post-content mt-1">
+        <div class="w-100" *ngFor="let tag of post.content">
+          <p class="paragraphTag" *ngIf="tag.tag === 'p'">{{tag.content}}</p>
+          <img class="img" *ngIf="tag.tag === 'i'" src="{{tag.content}}">
+          <video *ngIf="tag.tag === 'v'">{{tag.content}}</video>
+          <a *ngIf="tag.tag === 'l'" href="{{tag.content}}" target="_blank">{{tag.content}}</a>
+        </div>
+        <!--{{post.content}}-->
+      </div>
       <div class="w-100 mt-1" *ngIf="!post.comment">
         <p>Comments not allowed!</p>
       </div>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {LocationStrategy} from '@angular/common';
 import {Service} from '../services/service';
+import {ApplicationService} from '../application.service';
 
 @Component({
   selector: 'app-posts',
@@ -22,7 +23,7 @@ export class PostsComponent implements OnInit {
   showPosts: [];
   limit = 5;
 
-  constructor(public router: Router, private locationStrategy: LocationStrategy, private service: Service) {
+  constructor(public router: Router, private locationStrategy: LocationStrategy, private service: Service, private appService: ApplicationService) {
   }
 
   ngOnInit() {
@@ -72,6 +73,11 @@ export class PostsComponent implements OnInit {
       this.isShow = false;
     }
 
+  }
+
+  readPost(post) {
+    const id = post.uniqueId;
+    this.router.navigate(['posts/' + id]);
   }
 
   next() {
