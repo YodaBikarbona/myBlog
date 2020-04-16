@@ -82,3 +82,13 @@
     width: 100%;
   }
 }
+
+.post-views {
+  font-weight: 100;
+  height: 30px;
+  .paragraphTag {
+    font-size: 13px;
+    display: inline-block;
+    margin-left: 5px;
+  }
+}

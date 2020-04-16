@@ -44,6 +44,7 @@ import {JWTHeaderInterceptor} from './services/authorization-header.interceptor'
 
 import { CarouselModule, WavesModule } from 'angular-bootstrap-md';
 import { NewImageComponent } from './new-image/new-image.component';
+import {NgxSpinnerModule} from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -89,6 +90,7 @@ import { NewImageComponent } from './new-image/new-image.component';
     MatCheckboxModule,
     MatDialogModule,
     MatProgressBarModule,
+    NgxSpinnerModule,
     CarouselModule,
     WavesModule,
   ],

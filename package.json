@@ -25,6 +25,7 @@
     "angular-bootstrap-md": "^7.5.4",
     "aos": "^2.3.4",
     "core-js": "^2.5.4",
+    "ngx-spinner": "^7.2.0",
     "node-sass": "^4.13.1",
     "rxjs": "~6.3.3",
     "true-case-path": "^2.2.1",

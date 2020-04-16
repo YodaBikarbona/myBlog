@@ -1,4 +1,13 @@
 <div class="first-page w-100">
+  <ngx-spinner
+    bdColor="#fff"
+    size="medium"
+    color="#116466"
+    type="ball-scale-multiple"
+    [fullScreen]="true"
+  >
+    <p style="font-size: 20px; color: #116466">Loading...</p>
+  </ngx-spinner>
   <div class="row">
     <div class="col-md-4 col-sm-12 postBox remove">
     </div>
@@ -6,9 +15,10 @@
       <div class="w-100 imageBox" *ngIf="post.image">
         <img class="img"
              src="{{post.image.google_drive_link}}">
-             <!--src="http://127.0.0.1:8000/media/{{post.google_drive_link}}">-->
+        <!--src="http://127.0.0.1:8000/media/{{post.google_drive_link}}">-->
 
       </div>
+      <div class="w-100 post-views mt-1"><i class="far fa-eye"></i><p class="paragraphTag">{{post.views}}<p></p></div>
       <div class="w-100 post-date mt-1">{{post.created}}</div>
       <div class="w-100 post-title mt-1">{{post.title}}</div>
       <div class="w-100 post-content mt-1">
@@ -21,7 +31,7 @@
         <!--{{post.content}}-->
       </div>
       <div class="w-100 mt-1" *ngIf="!post.comment">
-        <p>Comments not allowed!</p>
+        <p>Comments are not allowed!</p>
       </div>
       <div class="w-100 mt-1" *ngIf="post.comment">
         <div class="mb-1" *ngFor="let comment of post.comments">
@@ -46,5 +56,17 @@
   </div>
 </div>
 <div class="footer pl-1 pr-1">
+  <div class="w-100 text-center">
+    <p class="paragraphTag">Designed & developed by me! :)</p>
+  </div>
+  <div class="w-100 text-center">
+    <p class="paragraphTag">Copyright <i class="fa fa-copyright" aria-hidden="true"></i> 2020 </p>
+  </div>
+  <div class="w-100 text-center socialMediaIcons">
+    <a href="https://www.instagram.com/yoda.bikarbona/" target="_blank" class="mr-1"><i
+      class="fab fa-instagram instagramIcon"></i></a> <a href="https://www.linkedin.com/in/mihael-peri%C4%87-311317140/"
+                                                         target="_blank"><i
+    class="fab fa-linkedin linkedinIcon"></i></a>
+  </div>
 </div>
 
