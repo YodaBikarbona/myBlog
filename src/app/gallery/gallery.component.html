@@ -1,29 +1,53 @@
 <div class="first-page w-100">
-  <div class="row">
-    <div class="col-md-2 col-sm-4 col-xs-4 imageBox" *ngFor="let image of gallery">
-      <img class="img"
-           src="{{image.google_drive_link}}"
-           (click)="goToImage(image)">
+  <div class="row imageRowContainer">
+    <div class="col-md-4 col-sm-0 col-xs-0 hidden">
+    </div>
+    <div class="col-md-4 col-sm-12 col-xs-12 imageBox">
+      <ngx-spinner
+        bdColor="#fff"
+        size="medium"
+        color="#116466"
+        type="ball-scale-multiple"
+      >
+        <p style="font-size: 20px; color: #116466">Loading...</p>
+      </ngx-spinner>
+      <div class="row w-100 imageRow">
+        <div class="col-md-4 col-sm-4 col-xs-4 imageBox" *ngFor="let image of gallery">
+          <img class="img"
+               src="{{image.google_drive_link}}" (click)="goToImage(image)">
+          <!--<img class="img"-->
+               <!--src="{{image.google_drive_link}}"-->
+               <!--(click)="goToImage(image)">-->
+        </div>
+      </div>
+
       <!--src="http://127.0.0.1:8000/media/{{image.file_name}}">-->
       <!--<img class="img"-->
-           <!--src="https://images.pexels.com/photos/754082/pexels-photo-754082.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"-->
-           <!--alt="Italian Trulli" (click)="goToImage()">-->
+      <!--src="https://images.pexels.com/photos/754082/pexels-photo-754082.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"-->
+      <!--alt="Italian Trulli" (click)="goToImage()">-->
+    </div>
+    <div class="col-md-4 col-sm-0 col-xs-0 hidden">
     </div>
   </div>
   <div class="row" *ngIf="role">
     <div class="w-100 text-right mt-1">
-      <button type="button" mat-raised-button color="primary" class="btn-block newImage pl-1 pr-1" (click)="newImage()">Add image</button>
+      <button type="button" mat-raised-button color="primary" class="btn-block newImage pl-1 pr-1" (click)="newImage()">
+        Add image
+      </button>
     </div>
   </div>
 </div>
 <div class="footer pl-1 pr-1">
   <div class="w-100 text-center">
-      <p class="paragraphTag">Designed & developed by me! :)</p>
-    </div>
-    <div class="w-100 text-center">
-      <p class="paragraphTag">Copyright <i class="fa fa-copyright" aria-hidden="true"></i> 2020 </p>
-    </div>
-    <div class="w-100 text-center socialMediaIcons">
-      <a href="https://www.instagram.com/yoda.bikarbona/" target="_blank" class="mr-1"><i class="fab fa-instagram instagramIcon"></i></a> <a href="https://www.linkedin.com/in/mihael-peri%C4%87-311317140/" target="_blank"><i class="fab fa-linkedin linkedinIcon"></i></a>
-    </div>
+    <p class="paragraphTag">Designed & developed by me! :)</p>
+  </div>
+  <div class="w-100 text-center">
+    <p class="paragraphTag">Copyright <i class="fa fa-copyright" aria-hidden="true"></i> 2020 </p>
+  </div>
+  <div class="w-100 text-center socialMediaIcons">
+    <a href="https://www.instagram.com/yoda.bikarbona/" target="_blank" class="mr-1"><i
+      class="fab fa-instagram instagramIcon"></i></a> <a href="https://www.linkedin.com/in/mihael-peri%C4%87-311317140/"
+                                                         target="_blank"><i
+    class="fab fa-linkedin linkedinIcon"></i></a>
+  </div>
 </div>

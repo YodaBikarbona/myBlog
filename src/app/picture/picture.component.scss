@@ -31,7 +31,7 @@
 }
 
 i {
-  font-size: 50px;
+  //font-size: 50px;
   line-height: 1;
 }
 
@@ -86,6 +86,10 @@ i {
 
 .img {
   height: auto;
+  @media (min-width: 900px) {
+    max-width: 750px;
+    max-height: 750px;
+  }
 }
 
 .main {
@@ -102,5 +106,53 @@ i {
 .remove {
   @media (max-width: 899px) {
     display: none;
+  }
+}
+
+.imageBox {
+  margin-top: 70px;
+}
+
+.image {
+  position: relative;
+}
+
+.nextImage {
+  width: auto;
+  height: auto;
+  background-color: transparent;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translate(-50%);
+  .next-angle {
+    font-size: 30px;
+    margin-left: -20px;
+    margin-top: -25px;
+    @media (min-width: 900px) {
+      &:hover {
+        transform: scale(1.3);
+      }
+    }
+  }
+}
+
+.previousImage {
+  width: auto;
+  height: auto;
+  background-color: transparent;
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translate(-50%);
+  .previous-angle {
+    font-size: 30px;
+    margin-top: -25px;
+    margin-right: -20px;
+    @media (min-width: 900px) {
+      &:hover {
+        transform: scale(1.3);
+      }
+    }
   }
 }

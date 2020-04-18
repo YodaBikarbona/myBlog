@@ -1,7 +1,8 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Subscription} from 'rxjs';
 import {Service} from '../services/service';
+import {NgxSpinnerService} from 'ngx-spinner';
 
 @Component({
   selector: 'app-picture',
@@ -18,20 +19,45 @@ export class PictureComponent implements OnInit, OnDestroy {
   image: any;
   private routeSub: Subscription;
 
-  constructor(private route: ActivatedRoute, private service: Service) { }
+  constructor(private route: ActivatedRoute, private service: Service, public router: Router, private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
     this.routeSub = this.route.params.subscribe(params => {
       // console.log(params) //log the entire params object
       // console.log(params['id']) //log the value of id
-      this.service.getImage(params['id']).subscribe((data: any) => {
-        this.image = data.result;
-      }, err => {
-
-      });
+      this.getImage(params['id']);
     });
     this.gotoTop(null, true);
+  }
 
+  getImage(id) {
+    this.spinner.show();
+    this.service.getImage(id).subscribe((data: any) => {
+        this.image = data.result;
+        this.spinner.hide();
+      }, err => {
+        this.spinner.hide();
+      });
+  }
+
+  getNextImage(id) {
+    this.spinner.show();
+    this.service.getNextImage(id).subscribe((data: any) => {
+        this.image = data.result;
+        this.spinner.hide();
+      }, err => {
+        this.spinner.hide();
+      });
+  }
+
+  getPreviousImage(id) {
+    this.spinner.show();
+    this.service.getPreviousImage(id).subscribe((data: any) => {
+        this.image = data.result;
+        this.spinner.hide();
+      }, err => {
+        this.spinner.hide();
+      });
   }
 
   ngOnDestroy() {
@@ -65,4 +91,13 @@ export class PictureComponent implements OnInit, OnDestroy {
     }
   }
 
+  goToNextImage(image) {
+    const id = image.uniqueId;
+    this.getNextImage(id);
+  }
+
+  goToPreviousImage(image) {
+    const id = image.uniqueId;
+    this.getPreviousImage(id);
+  }
 }

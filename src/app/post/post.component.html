@@ -18,7 +18,9 @@
         <!--src="http://127.0.0.1:8000/media/{{post.google_drive_link}}">-->
 
       </div>
-      <div class="w-100 post-views mt-1"><i class="far fa-eye"></i><p class="paragraphTag">{{post.views}}<p></p></div>
+      <div class="w-100 post-views mt-1"><i class="far fa-eye"></i>
+        <p class="paragraphTag">{{post.views}}
+        <p></p></div>
       <div class="w-100 post-date mt-1">{{post.created}}</div>
       <div class="w-100 post-title mt-1">{{post.title}}</div>
       <div class="w-100 post-content mt-1">
@@ -31,7 +33,7 @@
         <!--{{post.content}}-->
       </div>
       <div class="w-100 mt-1" *ngIf="!post.comment">
-        <p>Comments are not allowed!</p>
+        <p class="paragraphTag">Comments are not allowed!</p>
       </div>
       <div class="w-100 mt-1" *ngIf="post.comment">
         <div class="mb-1" *ngFor="let comment of post.comments">

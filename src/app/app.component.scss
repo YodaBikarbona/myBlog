@@ -22,6 +22,9 @@
       border-bottom: 1px solid $borderGreen;
       transition: border-bottom 500ms ease;
     }
+    @media (max-width: 767px) {
+      font-size: 10px;
+    }
   }
 }
 

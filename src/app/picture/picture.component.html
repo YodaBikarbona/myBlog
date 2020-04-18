@@ -3,18 +3,33 @@
     <div class="col-md-4 col-sm-12 imageBox remove">
     </div>
     <div class="col-md-4 col-sm-12 imageBox" *ngIf="image">
-      <img class="img"
+      <ngx-spinner
+        bdColor="#fff"
+        size="medium"
+        color="#116466"
+        type="ball-scale-multiple"
+      >
+      </ngx-spinner>
+      <div class="image">
+        <img class="img"
            src="{{image.google_drive_link}}">
-      <!--src="http://127.0.0.1:8000/{{image.path}}">-->
-      <div class="w-100 text-center like">
-        <!--<i class="fa fa-thumbs-up" aria-hidden="true"></i>-->
-        <i class="fa fa-heart" aria-hidden="true"></i>
+        <div class="nextImage">
+          <i class="fa fa-angle-right next-angle" aria-hidden="true" (click)="goToNextImage(image)"></i>
+        </div>
+        <div class="previousImage">
+          <i class="fa fa-angle-left previous-angle" aria-hidden="true" (click)="goToPreviousImage(image)"></i>
+        </div>
       </div>
+      <!--src="http://127.0.0.1:8000/{{image.path}}">-->
+      <!--<div class="w-100 text-center like">-->
+        <!--&lt;!&ndash;<i class="fa fa-thumbs-up" aria-hidden="true"></i>&ndash;&gt;-->
+        <!--<i class="fa fa-heart" aria-hidden="true"></i>-->
+      <!--</div>-->
       <div class="w-100 description">
-        <p class="pl-1 pr-1">{{image.description}}</p>
+        <p class="paragraphTag">{{image.description}}</p>
       </div>
       <div class="w-100 mt-1" *ngIf="!image.comment">
-        Onemogućeni komentari!
+        <p class="paragraphTag">Comments are not allowed!</p>
       </div>
       <div class="w-100 mt-1" *ngIf="image.comment">
         <div class="mb-1" *ngFor="let comment of image.comments">

@@ -3,6 +3,7 @@ import {Router} from '@angular/router';
 import {LocationStrategy} from '@angular/common';
 import {MatDialog} from '@angular/material';
 import {Service} from '../services/service';
+import {NgxSpinnerService} from 'ngx-spinner';
 
 @Component({
   selector: 'app-gallery',
@@ -20,9 +21,10 @@ export class GalleryComponent implements OnInit {
   numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   gallery: any;
 
-  constructor(public router: Router, private locationStrategy: LocationStrategy, private service: Service) { }
+  constructor(public router: Router, private locationStrategy: LocationStrategy, private service: Service, private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
+    this.spinner.show();
     history.pushState(null, null, location.href);
     this.locationStrategy.onPopState(() => {
           history.pushState(null, null, location.href);
@@ -35,6 +37,9 @@ export class GalleryComponent implements OnInit {
       this.gallery = data.results;
     }, err => {
     });
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 3000);
   }
 
   ngOnDestroy() {

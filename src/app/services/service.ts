@@ -23,6 +23,14 @@ export class Service {
     return this.http.get(`${API_URL}/v1/gallery/${id}`);
   }
 
+  getNextImage(id: string) {
+    return this.http.get(`${API_URL}/v1/gallery/${id}/next`);
+  }
+
+  getPreviousImage(id: string) {
+    return this.http.get(`${API_URL}/v1/gallery/${id}/previous`);
+  }
+
   getPost(id: string) {
     return this.http.get(`${API_URL}/v1/posts/${id}`);
   }
