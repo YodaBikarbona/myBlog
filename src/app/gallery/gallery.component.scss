@@ -1,7 +1,7 @@
 @import "~src/app/home/home.component";
 
 .first-page {
-  background-color: white;
+  background-color: #ececec;
   z-index: 1;
   height: unset;
   min-height: 100%;
@@ -40,6 +40,7 @@
   margin: auto;
   height: 100%;
   width: 100%;
+  box-shadow: 0px 10px 20px rgba(128,128,128,0.5);
   @media (min-width: 900px) {
     filter: grayscale(100%);
     transition: filter 500ms ease;

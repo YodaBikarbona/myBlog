@@ -80,6 +80,7 @@
     border-radius: unset;
     height: 100%;
     border-bottom: 1px solid $borderGreen;
+    color: #116466;
     transition: border-bottom 500ms ease;
     //background-color: #2C3531;
     //color: white;
@@ -223,7 +224,7 @@
   text-align: center;
   outline: none;
   z-index: 2;
-  background-color: white;
+  background-color: #ececec;
   border: 1px solid #116466;
   color: #2C3531;
   border-radius: 0;

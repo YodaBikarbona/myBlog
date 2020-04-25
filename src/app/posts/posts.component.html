@@ -5,7 +5,7 @@
     </div>
     <div class="col-md-8 col-sm-12 text-center what-is-about pr-5">
       <div class="row">
-        <div class="col-md-12 col-sm-12 post mb-1" *ngFor="let post of posts">
+        <div class="col-md-12 col-sm-12 post mb-2" *ngFor="let post of posts">
           <div class="post-date mb-1 w-100">{{post.created}}</div>
           <div class="post-title mb-1 w-100">{{post.title}}</div>
           <div class="post-content mb-1 w-100">
@@ -20,7 +20,7 @@
           </div>
         </div>
       </div>
-      <div class="mt-1">
+      <div class="mt-2">
         <div class="row postsPagination">
           <div class="col-md-1 col-sm-2 col-xs-2 disabled text-left mb-1" *ngIf="index === 0" disabled>
             <i class="fa fa-angle-double-left" aria-hidden="true"></i>

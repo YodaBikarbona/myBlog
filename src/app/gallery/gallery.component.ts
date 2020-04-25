@@ -39,7 +39,7 @@ export class GalleryComponent implements OnInit {
     });
     setTimeout(() => {
       this.spinner.hide();
-    }, 3000);
+    }, 2000);
   }
 
   ngOnDestroy() {
