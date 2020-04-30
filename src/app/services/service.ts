@@ -15,20 +15,24 @@ export class Service {
     return this.http.post(`${API_URL}/v1/login`, request);
   }
 
-  getGallery() {
-    return this.http.get(`${API_URL}/v1/gallery`);
+  getAlbums(){
+    return this.http.get(`${API_URL}/v1/albums`);
   }
 
-  getImage(id: string) {
-    return this.http.get(`${API_URL}/v1/gallery/${id}`);
+  getGallery(albumId: number) {
+    return this.http.get(`${API_URL}/v1/gallery/album/${albumId}`);
   }
 
-  getNextImage(id: string) {
-    return this.http.get(`${API_URL}/v1/gallery/${id}/next`);
+  getImage(id: string, albumId: number) {
+    return this.http.get(`${API_URL}/v1/gallery/album/${albumId}/${id}`);
   }
 
-  getPreviousImage(id: string) {
-    return this.http.get(`${API_URL}/v1/gallery/${id}/previous`);
+  getNextImage(id: string, albumId: number) {
+    return this.http.get(`${API_URL}/v1/gallery/album/${albumId}/${id}/next`);
+  }
+
+  getPreviousImage(id: string, albumId: number) {
+    return this.http.get(`${API_URL}/v1/gallery/album/${albumId}/${id}/previous`);
   }
 
   getPost(id: string) {

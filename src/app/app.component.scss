@@ -7,6 +7,9 @@
   overflow: hidden;
   height: 5%;
   z-index: 4;
+  @media (max-height: 499px) {
+    height: 10%;
+  }
 }
 
 .home, .gallery, .posts, .login {

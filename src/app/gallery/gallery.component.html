@@ -1,6 +1,41 @@
 <div class="first-page w-100">
   <div class="row imageRowContainer">
-    <div class="col-md-4 col-sm-0 col-xs-0 hidden">
+    <div class="col-md-4 col-sm-12 col-xs-12 hidden">
+      <div *ngIf="albums">
+        <div class="w-100 text-right mb-1">
+          <h3 class="mr-1 albums">Albums</h3>
+        </div>
+        <div class="w-100 text-right albumChoice albumsContainer">
+          <!--<label>-->
+          <!--<input type="radio" [checked]="albumId === 0"/>-->
+          <!--All-->
+          <!--<img (click)="albumChoice(0)"/>-->
+          <!--</label>-->
+          <label *ngFor="let album of albums">
+            <input type="radio" name="foo" value="0" [checked]="albumId !== 0"/>
+            {{album.name}}
+            <img (click)="albumChoice(album.id)"/>
+          </label>
+        </div>
+        <div class="w-100 text-right">
+          <button type="button" mat-raised-button color="primary" class="btn-block clear-filters"
+                  (click)="albumChoice(0)">Clear
+          </button>
+          <!--<label>-->
+          <!--<span>All</span>-->
+          <!--<input type="radio" name="radio" id='allAlbums' (click)="albumChoice(0)" checked>-->
+          <!---->
+          <!--</label>-->
+          <!--</div>-->
+          <!--<div class="w-100 text-right albumChoice" *ngFor="let album of albums">-->
+          <!--<label>-->
+          <!--<span>{{album.name}}</span>-->
+          <!--<input type="radio" name="radio" value="{{album.id}}" (click)="albumChoice(album.id)">-->
+          <!--</label>-->
+          <!--&lt;!&ndash;<mat-radio-button class="mr-2 albumName" value="{{album.id}}">{{album.name}}</mat-radio-button>&ndash;&gt;-->
+        </div>
+      </div>
+
     </div>
     <div class="col-md-4 col-sm-12 col-xs-12 imageBox">
       <ngx-spinner
@@ -11,13 +46,13 @@
       >
         <p style="font-size: 20px; color: #116466">Loading...</p>
       </ngx-spinner>
-      <div class="row w-100 imageRow">
+      <div class="row w-100 imageRow mb-1">
         <div class="col-md-4 col-sm-4 col-xs-4 imageBox" *ngFor="let image of gallery">
           <img class="img"
                src="{{image.google_drive_link}}" (click)="goToImage(image)">
           <!--<img class="img"-->
-               <!--src="{{image.google_drive_link}}"-->
-               <!--(click)="goToImage(image)">-->
+          <!--src="{{image.google_drive_link}}"-->
+          <!--(click)="goToImage(image)">-->
         </div>
       </div>
 

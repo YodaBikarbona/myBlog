@@ -17,6 +17,7 @@ export class PictureComponent implements OnInit, OnDestroy {
   commentLength = 0;
   errorMessage = '';
   image: any;
+  albumId = 0;
   private routeSub: Subscription;
 
   constructor(private route: ActivatedRoute, private service: Service, public router: Router, private spinner: NgxSpinnerService) { }
@@ -25,6 +26,10 @@ export class PictureComponent implements OnInit, OnDestroy {
     this.routeSub = this.route.params.subscribe(params => {
       // console.log(params) //log the entire params object
       // console.log(params['id']) //log the value of id
+      if (params['albumId']) {
+        this.albumId = params['albumId'];
+        console.log(this.albumId)
+      }
       this.getImage(params['id']);
     });
     this.gotoTop(null, true);
@@ -32,7 +37,7 @@ export class PictureComponent implements OnInit, OnDestroy {
 
   getImage(id) {
     this.spinner.show();
-    this.service.getImage(id).subscribe((data: any) => {
+    this.service.getImage(id, this.albumId).subscribe((data: any) => {
         this.image = data.result;
         this.spinner.hide();
       }, err => {
@@ -42,7 +47,7 @@ export class PictureComponent implements OnInit, OnDestroy {
 
   getNextImage(id) {
     this.spinner.show();
-    this.service.getNextImage(id).subscribe((data: any) => {
+    this.service.getNextImage(id, this.albumId).subscribe((data: any) => {
         this.image = data.result;
         this.spinner.hide();
       }, err => {
@@ -52,7 +57,7 @@ export class PictureComponent implements OnInit, OnDestroy {
 
   getPreviousImage(id) {
     this.spinner.show();
-    this.service.getPreviousImage(id).subscribe((data: any) => {
+    this.service.getPreviousImage(id, this.albumId).subscribe((data: any) => {
         this.image = data.result;
         this.spinner.hide();
       }, err => {

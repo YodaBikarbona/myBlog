@@ -97,3 +97,93 @@
 .imageRowContainer {
   padding-top: 70px;
 }
+
+.albums {
+  margin-top: 20px;
+  font-size: 0.875rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+.albumName {
+  color: #767676;
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.1818em;
+  text-transform: uppercase;
+}
+
+div.albumChoice > label > input {
+  visibility: hidden;
+}
+
+div.albumChoice > label {
+  display: block;
+  margin: 0 0 0 -10px;
+  padding: 0 0 20px 0;
+  height: 20px;
+  width: 100%;
+}
+
+div.albumChoice > label > img {
+  display: inline-block;
+  padding: 0px;
+  height: 20px;
+  width: 20px;
+  background: none;
+  border: 1px solid #116466;
+  margin-bottom: -5px;
+  @media (min-width: 900px) {
+    &:hover {
+      background-color: #11646673;
+    }
+  }
+}
+
+div.albumChoice > label > input:checked + img {
+  background-color: #116466;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 20px 20px;
+  border: 1px solid white;
+  margin-bottom: -5px;
+}
+
+div.albumChoice > p {
+  display: inline-block;
+}
+
+.clear-filters {
+  width: 70px;
+  right: 0px;
+  bottom: 5px;
+  font-size: 10px;
+  text-align: center;
+  outline: none;
+  background-color: #ececec;
+  border: 1px solid #116466;
+  color: #2C3531;
+  border-radius: 50px;
+  box-shadow: 0px 10px 20px rgba(128,128,128,0.5);
+  letter-spacing: 1px;
+	text-transform: uppercase;
+  &:hover {
+    @media (min-width: 900px) {
+      background-color: #116466;
+      color: white;
+      transition: background-color 500ms ease, color 500ms ease;
+    }
+
+  }
+  @media (max-width: 767px) {
+    width: 100%;
+  }
+}
+
+.albumChoice {
+  @media (max-width: 899px) {
+    max-height: 120px;
+    overflow-y: scroll;
+  }
+}

@@ -4,6 +4,7 @@ import {LocationStrategy} from '@angular/common';
 import {MatDialog} from '@angular/material';
 import {Service} from '../services/service';
 import {NgxSpinnerService} from 'ngx-spinner';
+import {element} from 'protractor';
 
 @Component({
   selector: 'app-gallery',
@@ -20,11 +21,13 @@ export class GalleryComponent implements OnInit {
   role = '';
   numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   gallery: any;
+  albums: any;
+  albumId = 0;
 
   constructor(public router: Router, private locationStrategy: LocationStrategy, private service: Service, private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
-    this.spinner.show();
+    // this.spinner.show();
     history.pushState(null, null, location.href);
     this.locationStrategy.onPopState(() => {
           history.pushState(null, null, location.href);
@@ -33,13 +36,10 @@ export class GalleryComponent implements OnInit {
     if (localStorage.getItem('userRole') && localStorage.getItem('userRole') === 'Administrator') {
       this.role = localStorage.getItem('userRole');
     }
-    this.service.getGallery().subscribe((data: any) => {
-      this.gallery = data.results;
-    }, err => {
-    });
-    setTimeout(() => {
-      this.spinner.hide();
-    }, 3000);
+    this.getAlbums();
+    // setTimeout(() => {
+    //   this.spinner.hide();
+    // }, 3000);
   }
 
   ngOnDestroy() {
@@ -50,6 +50,31 @@ export class GalleryComponent implements OnInit {
   //   this.active = section;
   //   this.router.navigate([this.active]);
   // }
+
+  getAlbums() {
+    this.service.getAlbums().subscribe((data: any) => {
+      this.albums = data.results;
+      console.log(this.albums)
+      this.getGallery();
+    }, err => {
+    });
+  }
+
+  getGallery() {
+    this.spinner.show();
+    this.service.getGallery(this.albumId).subscribe((data: any) => {
+      this.gallery = data.results;
+      if (this.gallery.length === 0) {
+        this.spinner.hide();
+      } else {
+            setTimeout(() => {
+          this.spinner.hide();
+        }, 3000);
+      }
+    }, err => {
+      this.spinner.hide();
+    });
+  }
 
   gotoTop(event) {
     document.body.scrollTop = 0;
@@ -67,11 +92,24 @@ export class GalleryComponent implements OnInit {
 
   goToImage(image) {
     const id = image.uniqueId;
-    this.router.navigate(['gallery/' + id]);
+    if (this.albumId === 0) {
+      this.router.navigate(['gallery/' + id]);
+    } else {
+      this.router.navigate(['gallery/album/' + this.albumId + '/' + id]);
+    }
   }
 
   newImage() {
     this.router.navigate(['gallery/picture/new']);
+  }
+
+  albumChoice(albumId) {
+    if (albumId !== this.albumId) {
+      this.albumId = albumId;
+      this.getGallery();
+      console.log(albumId);
+    }
+
   }
 
 }
