@@ -5,6 +5,7 @@ import {MatDialog} from '@angular/material';
 import {Service} from '../services/service';
 import {NgxSpinnerService} from 'ngx-spinner';
 import {element} from 'protractor';
+import {el} from '@angular/platform-browser/testing/src/browser_util';
 
 @Component({
   selector: 'app-gallery',
@@ -23,6 +24,10 @@ export class GalleryComponent implements OnInit {
   gallery: any;
   albums: any;
   albumId = 0;
+  index = 0;
+  maxIndex = 0;
+  limit = 9;
+  showPagination = false;
 
   constructor(public router: Router, private locationStrategy: LocationStrategy, private service: Service, private spinner: NgxSpinnerService) { }
 
@@ -54,7 +59,6 @@ export class GalleryComponent implements OnInit {
   getAlbums() {
     this.service.getAlbums().subscribe((data: any) => {
       this.albums = data.results;
-      console.log(this.albums)
       this.getGallery();
     }, err => {
     });
@@ -62,8 +66,15 @@ export class GalleryComponent implements OnInit {
 
   getGallery() {
     this.spinner.show();
-    this.service.getGallery(this.albumId).subscribe((data: any) => {
+    this.showPagination = true;
+    this.service.getGallery(this.albumId, this.index, this.limit).subscribe((data: any) => {
       this.gallery = data.results;
+      if (this.gallery && this.gallery.length !== 0) {
+        this.maxIndex = Math.floor((this.gallery[0].images_number - 1) / this.limit);
+      }
+      else {
+        this.maxIndex = 0;
+      }
       if (this.gallery.length === 0) {
         this.spinner.hide();
       } else {
@@ -105,11 +116,36 @@ export class GalleryComponent implements OnInit {
 
   albumChoice(albumId) {
     if (albumId !== this.albumId) {
+      document.querySelector('#main').scroll({top: 0, left: 0, behavior: 'smooth'});
       this.albumId = albumId;
+      this.index = 0;
+      this.maxIndex = 0;
       this.getGallery();
-      console.log(albumId);
     }
 
   }
 
+  next() {
+    document.querySelector('#main').scroll({top: 0, left: 0, behavior: 'smooth'});
+    this.index += 1;
+    this.getGallery();
+  }
+
+  first() {
+    document.querySelector('#main').scroll({top: 0, left: 0, behavior: 'smooth'});
+    this.index = 0;
+    this.getGallery();
+  }
+
+  previous() {
+    document.querySelector('#main').scroll({top: 0, left: 0, behavior: 'smooth'});
+    this.index -= 1;
+    this.getGallery();
+  }
+
+  last() {
+    document.querySelector('#main').scroll({top: 0, left: 0, behavior: 'smooth'});
+    this.index = this.maxIndex;
+    this.getGallery();
+  }
 }

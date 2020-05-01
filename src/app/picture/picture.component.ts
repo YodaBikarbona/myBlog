@@ -28,7 +28,6 @@ export class PictureComponent implements OnInit, OnDestroy {
       // console.log(params['id']) //log the value of id
       if (params['albumId']) {
         this.albumId = params['albumId'];
-        console.log(this.albumId)
       }
       this.getImage(params['id']);
     });

@@ -96,6 +96,10 @@
 
 .imageRowContainer {
   padding-top: 70px;
+  //height: 100vh;
+  @media (max-width: 899px) {
+    //overflow-y: scroll;
+  }
 }
 
 .albums {
@@ -104,6 +108,7 @@
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.14em;
+  color: #767676;
 }
 
 .albumName {
@@ -124,6 +129,9 @@ div.albumChoice > label {
   padding: 0 0 20px 0;
   height: 20px;
   width: 100%;
+  font-size: 12px;
+  font-weight: 100;
+  color: #116466;
 }
 
 div.albumChoice > label > img {
@@ -182,8 +190,91 @@ div.albumChoice > p {
 }
 
 .albumChoice {
+  //@media (max-width: 899px) {
+  //  max-height: 120px;
+  //  overflow-y: scroll;
+  //}
+}
+
+.imageBoxContainer {
+  max-height: unset;
+  //height: 100vh;
+  //overflow-y: scroll;
   @media (max-width: 899px) {
-    max-height: 120px;
-    overflow-y: scroll;
+    //overflow-y:hidden;
+  }
+}
+
+div.imageBoxContainer::-webkit-scrollbar {
+    width: 3px;
+    height: 200px;
+  }
+
+div.imageBoxContainer::-webkit-scrollbar-button {
+    background: #888888;
+  }
+div.imageBoxContainer::-webkit-scrollbar-track-piece {
+    background: #cccccc;
+  }
+div.imageBoxContainer::-webkit-scrollbar-thumb {
+    background: #116466;
+  }
+
+.hidden {
+  @media (max-width: 899px) {
+    display: none;
+  }
+}
+
+.desktopHiddenAlbum {
+  @media (min-width: 900px) {
+    display: none;
+  }
+}
+
+.imagesPagination {
+  i {
+    background-color: #ececec;
+    //border: 1px solid #116466;
+    color: #116466;
+    border-radius: 0;
+    &:hover {
+      //background-color: #2C3531;
+      //background-color: #116466;
+      //color: white;
+      //transition: background-color 500ms ease, color 500ms ease;
+      @media (min-width: 900px) {
+        transform: scale(1.2);
+        transition: scale 500ms ease;
+      }
+    }
+    &:before {
+      font-size: 35px;
+    }
+    @media (max-width: 767px) {
+      //background-color: #116466;
+      //color: white;
+    }
+  }
+}
+
+.page {
+  margin-top: 12px;
+  color: #767676;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.1818em;
+  text-transform: uppercase;
+}
+
+.disabled {
+  i {
+    //background-color: silver;
+    //color: black;
+    color: silver;
+    &:hover {
+      //background-color: silver;
+      //color: black;
+    }
   }
 }

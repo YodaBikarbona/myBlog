@@ -19,8 +19,9 @@ export class Service {
     return this.http.get(`${API_URL}/v1/albums`);
   }
 
-  getGallery(albumId: number) {
-    return this.http.get(`${API_URL}/v1/gallery/album/${albumId}`);
+  getGallery(albumId: number, offset: number, limit: number) {
+    const queryString = `?offset=${offset}&limit=${limit}`;
+    return this.http.get(`${API_URL}/v1/gallery/album/${albumId}` + queryString);
   }
 
   getImage(id: string, albumId: number) {

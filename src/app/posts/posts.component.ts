@@ -3,6 +3,7 @@ import {Router} from '@angular/router';
 import {LocationStrategy} from '@angular/common';
 import {Service} from '../services/service';
 import {ApplicationService} from '../application.service';
+import {NgxSpinnerService} from 'ngx-spinner';
 
 @Component({
   selector: 'app-posts',
@@ -22,8 +23,9 @@ export class PostsComponent implements OnInit {
   posts: any;
   showPosts: [];
   limit = 5;
+  showPagination = false;
 
-  constructor(public router: Router, private locationStrategy: LocationStrategy, private service: Service, private appService: ApplicationService) {
+  constructor(public router: Router, private locationStrategy: LocationStrategy, private service: Service, private appService: ApplicationService, private spinner: NgxSpinnerService) {
   }
 
   ngOnInit() {
@@ -37,6 +39,8 @@ export class PostsComponent implements OnInit {
   }
 
   getPosts() {
+    this.spinner.show();
+    this.showPagination = true;
     this.service.getPosts(this.index, this.limit).subscribe((data: any) => {
       this.posts = data.results;
       if (this.posts) {
@@ -47,7 +51,9 @@ export class PostsComponent implements OnInit {
       //   for (let i = 0; i < this.posts.length; i++) {
       //     this.showPosts.push(this.posts[i]);
       //   }
+      this.spinner.hide();
     }, err => {
+      this.spinner.hide();
     });
   }
 
@@ -82,78 +88,24 @@ export class PostsComponent implements OnInit {
 
   next() {
     document.querySelector('#main').scroll({top: 0, left: 0, behavior: 'smooth'});
-    // if (screen.width === 360) {
-    //   document.querySelector('#main').scroll({top: 640, left: 0, behavior: 'smooth'});
-    // } else if (screen.width === 320) {
-    //   document.querySelector('#main').scroll({top: 568, left: 0, behavior: 'smooth'});
-    // } else if (screen.width === 375) {
-    //   document.querySelector('#main').scroll({top: 667, left: 0, behavior: 'smooth'});
-    // } else if (screen.width === 411) {
-    //   document.querySelector('#main').scroll({top: 731, left: 0, behavior: 'smooth'});
-    // } else if (screen.width === 414) {
-    //   document.querySelector('#main').scroll({top: 736, left: 0, behavior: 'smooth'});
-    // } else if (screen.width === 768) {
-    //   document.querySelector('#main').scroll({top: 972, left: 0, behavior: 'smooth'});
-    // }
     this.index += 1;
-    // this.maxIndex += 1;
     this.getPosts();
   }
 
   first() {
     document.querySelector('#main').scroll({top: 0, left: 0, behavior: 'smooth'});
-    // if (screen.width === 360) {
-    //   document.querySelector('#main').scroll({top: 640, left: 0, behavior: 'smooth'});
-    // } else if (screen.width === 320) {
-    //   document.querySelector('#main').scroll({top: 568, left: 0, behavior: 'smooth'});
-    // } else if (screen.width === 375) {
-    //   document.querySelector('#main').scroll({top: 667, left: 0, behavior: 'smooth'});
-    // } else if (screen.width === 411) {
-    //   document.querySelector('#main').scroll({top: 731, left: 0, behavior: 'smooth'});
-    // } else if (screen.width === 414) {
-    //   document.querySelector('#main').scroll({top: 736, left: 0, behavior: 'smooth'});
-    // } else if (screen.width === 768) {
-    //   document.querySelector('#main').scroll({top: 972, left: 0, behavior: 'smooth'});
-    // }
     this.index = 0;
     this.getPosts();
   }
 
   previous() {
     document.querySelector('#main').scroll({top: 0, left: 0, behavior: 'smooth'});
-    // if (screen.width === 360) {
-    //   document.querySelector('#main').scroll({top: 640, left: 0, behavior: 'smooth'});
-    // } else if (screen.width === 320) {
-    //   document.querySelector('#main').scroll({top: 568, left: 0, behavior: 'smooth'});
-    // } else if (screen.width === 375) {
-    //   document.querySelector('#main').scroll({top: 667, left: 0, behavior: 'smooth'});
-    // } else if (screen.width === 411) {
-    //   document.querySelector('#main').scroll({top: 731, left: 0, behavior: 'smooth'});
-    // } else if (screen.width === 414) {
-    //   document.querySelector('#main').scroll({top: 736, left: 0, behavior: 'smooth'});
-    // } else if (screen.width === 768) {
-    //   document.querySelector('#main').scroll({top: 972, left: 0, behavior: 'smooth'});
-    // }
     this.index -= 1;
-    // this.maxIndex -= 1;
     this.getPosts();
   }
 
   last() {
     document.querySelector('#main').scroll({top: 0, left: 0, behavior: 'smooth'});
-    // if (screen.width === 360) {
-    //   document.querySelector('#main').scroll({top: 640, left: 0, behavior: 'smooth'});
-    // } else if (screen.width === 320) {
-    //   document.querySelector('#main').scroll({top: 568, left: 0, behavior: 'smooth'});
-    // } else if (screen.width === 375) {
-    //   document.querySelector('#main').scroll({top: 667, left: 0, behavior: 'smooth'});
-    // } else if (screen.width === 411) {
-    //   document.querySelector('#main').scroll({top: 731, left: 0, behavior: 'smooth'});
-    // } else if (screen.width === 414) {
-    //   document.querySelector('#main').scroll({top: 736, left: 0, behavior: 'smooth'});
-    // } else if (screen.width === 768) {
-    //   document.querySelector('#main').scroll({top: 972, left: 0, behavior: 'smooth'});
-    // }
     this.index = this.maxIndex;
     this.getPosts();
   }

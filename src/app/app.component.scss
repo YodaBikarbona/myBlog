@@ -260,3 +260,21 @@
     background-color: #2C3531;
   }
 }
+
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 200px;
+}
+
+::-webkit-scrollbar-button {
+  background: #888888;
+}
+
+::-webkit-scrollbar-track-piece {
+  background: #cccccc;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #116466;
+}
