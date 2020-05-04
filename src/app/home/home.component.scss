@@ -228,10 +228,11 @@
 
 .quote {
   position: absolute;
-  bottom: 10px;
+  bottom: 30px;
   color: initial;
   font-size: 2.5rem;
   font-weight: 300;
+  width: 75%;
   @media (max-width: 899px) {
     font-size: 1rem;
     font-weight: 300;
