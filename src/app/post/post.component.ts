@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import {LocationStrategy} from '@angular/common';
 import {ActivatedRoute} from '@angular/router';
 import {Service} from '../services/service';
@@ -16,6 +16,11 @@ export class PostComponent implements OnInit {
 
   post: any;
   private routeSub: Subscription;
+
+  @HostListener('contextmenu', ['$event'])
+  onRightClick(event) {
+    return false;
+  }
 
   constructor(private locationStrategy: LocationStrategy, private route: ActivatedRoute, private service: Service, private spinner: NgxSpinnerService) { }
 

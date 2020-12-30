@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {LocationStrategy} from '@angular/common';
 import {MatDialog} from '@angular/material';
@@ -28,6 +28,11 @@ export class GalleryComponent implements OnInit {
   maxIndex = 0;
   limit = 9;
   showPagination = false;
+
+  @HostListener('contextmenu', ['$event'])
+  onRightClick(event) {
+    return false;
+  }
 
   constructor(public router: Router, private locationStrategy: LocationStrategy, private service: Service, private spinner: NgxSpinnerService) { }
 

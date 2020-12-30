@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, HostListener, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Subscription} from 'rxjs';
 import {Service} from '../services/service';
@@ -19,6 +19,11 @@ export class PictureComponent implements OnInit, OnDestroy {
   image: any;
   albumId = 0;
   private routeSub: Subscription;
+
+  @HostListener('contextmenu', ['$event'])
+  onRightClick(event) {
+    return false;
+  }
 
   constructor(private route: ActivatedRoute, private service: Service, public router: Router, private spinner: NgxSpinnerService) { }
 

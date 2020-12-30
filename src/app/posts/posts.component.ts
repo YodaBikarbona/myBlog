@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {LocationStrategy} from '@angular/common';
 import {Service} from '../services/service';
@@ -24,6 +24,11 @@ export class PostsComponent implements OnInit {
   showPosts: [];
   limit = 5;
   showPagination = false;
+
+  @HostListener('contextmenu', ['$event'])
+  onRightClick(event) {
+    return false;
+  }
 
   constructor(public router: Router, private locationStrategy: LocationStrategy, private service: Service, private appService: ApplicationService, private spinner: NgxSpinnerService) {
   }

@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, HostListener, OnDestroy, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import { ApplicationService} from './application.service';
 
@@ -16,6 +16,11 @@ export class AppComponent implements OnInit, OnDestroy {
   topPosToStartShowing = 100;
 
   token = false;
+
+  @HostListener('contextmenu', ['$event'])
+  onRightClick(event) {
+    return false;
+  }
 
   constructor(public router: Router, private service: ApplicationService) { }
 
