@@ -17,10 +17,10 @@ export class PostComponent implements OnInit {
   post: any;
   private routeSub: Subscription;
 
-  @HostListener('contextmenu', ['$event'])
-  onRightClick(event) {
-    return false;
-  }
+  // @HostListener('contextmenu', ['$event'])
+  // onRightClick(event) {
+  //   return false;
+  // }
 
   constructor(private locationStrategy: LocationStrategy, private route: ActivatedRoute, private service: Service, private spinner: NgxSpinnerService) { }
 

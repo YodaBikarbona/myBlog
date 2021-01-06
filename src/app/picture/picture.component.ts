@@ -20,10 +20,10 @@ export class PictureComponent implements OnInit, OnDestroy {
   albumId = 0;
   private routeSub: Subscription;
 
-  @HostListener('contextmenu', ['$event'])
-  onRightClick(event) {
-    return false;
-  }
+  // @HostListener('contextmenu', ['$event'])
+  // onRightClick(event) {
+  //   return false;
+  // }
 
   constructor(private route: ActivatedRoute, private service: Service, public router: Router, private spinner: NgxSpinnerService) { }
 

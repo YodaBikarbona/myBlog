@@ -29,10 +29,10 @@ export class GalleryComponent implements OnInit {
   limit = 9;
   showPagination = false;
 
-  @HostListener('contextmenu', ['$event'])
-  onRightClick(event) {
-    return false;
-  }
+  // @HostListener('contextmenu', ['$event'])
+  // onRightClick(event) {
+  //   return false;
+  // }
 
   constructor(public router: Router, private locationStrategy: LocationStrategy, private service: Service, private spinner: NgxSpinnerService) { }
 

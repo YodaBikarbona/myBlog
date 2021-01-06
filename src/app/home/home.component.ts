@@ -18,10 +18,10 @@ export class HomeComponent implements OnInit {
   topPosToStartShowing = 100;
   posts: any;
 
-  @HostListener('contextmenu', ['$event'])
-  onRightClick(event) {
-    return false;
-  }
+  // @HostListener('contextmenu', ['$event'])
+  // onRightClick(event) {
+  //   return false;
+  // }
 
   constructor(public router: Router, private locationStrategy: LocationStrategy, private appService: ApplicationService, private service: Service) { }
 

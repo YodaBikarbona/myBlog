@@ -25,10 +25,10 @@ export class PostsComponent implements OnInit {
   limit = 5;
   showPagination = false;
 
-  @HostListener('contextmenu', ['$event'])
-  onRightClick(event) {
-    return false;
-  }
+  // @HostListener('contextmenu', ['$event'])
+  // onRightClick(event) {
+  //   return false;
+  // }
 
   constructor(public router: Router, private locationStrategy: LocationStrategy, private service: Service, private appService: ApplicationService, private spinner: NgxSpinnerService) {
   }
