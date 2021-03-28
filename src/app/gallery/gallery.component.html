@@ -7,12 +7,13 @@
         </div>
         <div class="w-100 text-right albumChoice albumsContainer">
           <label *ngFor="let album of albums">
-            <input type="radio" name="foo" value="0" [checked]="albumId !== 0"/>
+            <input *ngIf="album.id === defaultAlbum" type="radio" name="foo" value="0" [checked]="albumId !== 0"/>
+            <input *ngIf="album.id !== defaultAlbum" type="radio" name="foo" value="0"/>
             {{album.name}}
             <img (click)="albumChoice(album.id)"/>
           </label>
         </div>
-        <div class="w-100 text-right">
+        <div class="w-100 text-right display-none">
           <button type="button" mat-raised-button color="primary" class="btn-block clear-filters"
                   (click)="albumChoice(0)">Clear
           </button>
@@ -82,12 +83,13 @@
         </div>
         <div class="w-100 text-right albumChoice albumsContainer">
           <label *ngFor="let album of albums">
-            <input type="radio" name="foo" value="0" [checked]="albumId !== 0"/>
+            <input *ngIf="album.id === defaultAlbum" type="radio" name="foo" value="0" [checked]="albumId !== 0"/>
+            <input *ngIf="album.id !== defaultAlbum" type="radio" name="foo" value="0"/>
             {{album.name}}
             <img (click)="albumChoice(album.id)"/>
           </label>
         </div>
-        <div class="w-100 text-right">
+        <div class="w-100 text-right display-none">
           <button type="button" mat-raised-button color="primary" class="btn-block clear-filters"
                   (click)="albumChoice(0)">Clear
           </button>

@@ -28,6 +28,7 @@ export class GalleryComponent implements OnInit {
   maxIndex = 0;
   limit = 9;
   showPagination = false;
+  defaultAlbum = null;
 
   // @HostListener('contextmenu', ['$event'])
   // onRightClick(event) {
@@ -64,7 +65,12 @@ export class GalleryComponent implements OnInit {
   getAlbums() {
     this.service.getAlbums().subscribe((data: any) => {
       this.albums = data.results;
-      this.getGallery();
+      if (data.results) {
+        const albumId = data.results[0].id;
+        this.defaultAlbum = data.results[0].id;
+        this.albumChoice(albumId, this.defaultAlbum);
+      }
+      // this.getGallery();
     }, err => {
     });
   }
@@ -119,15 +125,15 @@ export class GalleryComponent implements OnInit {
     this.router.navigate(['gallery/picture/new']);
   }
 
-  albumChoice(albumId) {
+  albumChoice(albumId, defaultAlbum = 0) {
     if (albumId !== this.albumId) {
       document.querySelector('#main').scroll({top: 0, left: 0, behavior: 'smooth'});
       this.albumId = albumId;
       this.index = 0;
       this.maxIndex = 0;
+      this.defaultAlbum = defaultAlbum;
       this.getGallery();
     }
-
   }
 
   next() {
