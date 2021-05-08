@@ -2,14 +2,19 @@
   <div class="row w-100 navigation">
     <div class="col-md-4 mobileHidden"></div>
     <div [className]="active == 'home' ? 'col-md-1 col-sm-4 col-xs-4 home active' : 'col-md-1 col-sm-4 col-xs-4 home inactive'">
-      <button type="button" mat-raised-button color="primary" class="btn-block" (click)="click('home')">Home</button>
+      <button type="button" mat-raised-button color="primary" class="btn-block" (click)="click('home')">
+        <i class="fa fa-home homeIcon"></i>
+      </button>
     </div>
     <div [className]="active == 'gallery' ? 'col-md-1 col-sm-4 col-xs-4 gallery active' : 'col-md-1 col-sm-4 col-xs-4 gallery inactive'">
-      <button type="button" mat-raised-button color="primary" class="btn-block" (click)="click('gallery')">Gallery
+      <button type="button" mat-raised-button color="primary" class="btn-block" (click)="click('gallery')">
+        <i class="fas fa-photo-video galleryIcon"></i>
       </button>
     </div>
     <div [className]="active == 'posts' ? 'col-md-1 col-sm-4 col-xs-4 posts active' : 'col-md-1 col-sm-4 col-xs-4 posts inactive'">
-      <button type="button" mat-raised-button color="primary" class="btn-block" (click)="click('posts')">Posts</button>
+      <button type="button" mat-raised-button color="primary" class="btn-block" (click)="click('posts')">
+        <i class="fas fa-blog postsIcon"></i>
+      </button>
     </div>
     <!--<div-->
       <!--[className]="active == 'login' ? 'col-md-1 col-sm-3 col-xs-3 login active' : 'col-md-1 col-sm-3 col-xs-3 login inactive'" *ngIf="!token">-->
