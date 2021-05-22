@@ -82,12 +82,15 @@
           <h3 class="mr-1 albums">Albums</h3>
         </div>
         <div class="w-100 text-right albumChoice albumsContainer">
-          <label *ngFor="let album of albums">
-            <input *ngIf="album.id === defaultAlbum" type="radio" name="foo" value="0" [checked]="albumId !== 0"/>
-            <input *ngIf="album.id !== defaultAlbum" type="radio" name="foo" value="0"/>
-            {{album.name}}
-            <img (click)="albumChoice(album.id)"/>
-          </label>
+          <!--<label *ngFor="let album of albums">-->
+            <!--<input *ngIf="album.id === defaultAlbum" type="radio" name="foo" value="0" [checked]="albumId !== 0"/>-->
+            <!--<input *ngIf="album.id !== defaultAlbum" type="radio" name="foo" value="0"/>-->
+            <!--{{album.name}}-->
+            <!--<img (click)="albumChoice(album.id)"/>-->
+            <button *ngFor="let album of albums" type="button" mat-raised-button color="primary"
+                  (click)="albumChoice(album.id)" [className]="albumId == album.id ? 'btn-block albumButton-active' : 'btn-block albumButton'">{{album.name}}
+          </button>
+          <!--</label>-->
         </div>
         <div class="w-100 text-right display-none">
           <button type="button" mat-raised-button color="primary" class="btn-block clear-filters"
