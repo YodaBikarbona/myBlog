@@ -28,6 +28,9 @@
           <p class="paragraphTag" *ngIf="tag.tag === 'p'">{{tag.content}}</p>
           <img class="img" *ngIf="tag.tag === 'i'" src="{{tag.content}}">
           <video *ngIf="tag.tag === 'v'">{{tag.content}}</video>
+          <iframe *ngIf="tag.tag === 'y'" width="100%" height="300" [src]="tag.content | safe" frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen></iframe>
           <a *ngIf="tag.tag === 'l'" href="{{tag.content}}" target="_blank">{{tag.content}}</a>
         </div>
         <!--{{post.content}}-->
