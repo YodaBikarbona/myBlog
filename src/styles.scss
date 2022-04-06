@@ -18,6 +18,22 @@ body {
   }
 }
 
+@mixin width-px($attribute) {
+  @for $i from 1 to 1000 {
+    &-#{$i} {
+      #{$attribute}: $i * 1px;
+    }
+  }
+}
+
+@mixin height-px($attribute) {
+  @for $i from 1 to 1000 {
+    &-#{$i} {
+      #{$attribute}: $i * 1px;
+    }
+  }
+}
+
 .m {
   @include space(margin);
 }
@@ -56,6 +72,14 @@ body {
 
 .pl {
   @include space(padding-left)
+}
+
+.wpx {
+  @include width-px(width)
+}
+
+.hpx {
+  @include height-px(height)
 }
 
 .spacer {

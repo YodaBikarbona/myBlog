@@ -9,8 +9,8 @@
     <p style="font-size: 20px; color: #116466">Loading...</p>
   </ngx-spinner>
   <div class="row">
-    <div class="col-md-4 col-sm-12 postBox remove">
-    </div>
+    <!--<div class="col-md-4 col-sm-12 postBox remove">-->
+    <!--</div>-->
     <div class="col-md-4 col-sm-12 postBox" *ngIf="post">
       <div class="w-100 imageBox" *ngIf="post.image">
         <img class="img"
@@ -18,12 +18,13 @@
         <!--src="http://127.0.0.1:8000/media/{{post.google_drive_link}}">-->
 
       </div>
-      <div class="w-100 post-views mt-1"><i class="far fa-eye"></i>
+      <div class="p-1">
+      <div class="post-views mt-1"><i class="far fa-eye"></i>
         <p class="paragraphTag">{{post.views}}
         <p></p></div>
-      <div class="w-100 post-date mt-1">{{post.created}}</div>
-      <div class="w-100 post-title mt-1">{{post.title}}</div>
-      <div class="w-100 post-content mt-1">
+      <div class="post-date mt-1">{{post.created}}</div>
+      <div class="post-title mt-1">{{post.title}}</div>
+      <div class="post-content mt-1">
         <div class="w-100" *ngFor="let tag of post.content">
           <p class="paragraphTag" *ngIf="tag.tag === 'p'">{{tag.content}}</p>
           <img class="img" *ngIf="tag.tag === 'i'" src="{{tag.content}}">
@@ -35,10 +36,10 @@
         </div>
         <!--{{post.content}}-->
       </div>
-      <div class="w-100 mt-1" *ngIf="!post.comment">
+      <div class="mt-1" *ngIf="!post.comment">
         <p class="paragraphTag">Comments are not allowed!</p>
       </div>
-      <div class="w-100 mt-1" *ngIf="post.comment">
+      <div class="mt-1" *ngIf="post.comment">
         <div class="mb-1" *ngFor="let comment of post.comments">
           {{comment.user.user_name}}: {{comment.content}}
         </div>
@@ -48,12 +49,13 @@
                     (ngModelChange)="calculateCommentLength()">
           </textarea>
         </div>
-        <div class="w-100 text-right mt-1">
+        <div class="text-right mt-1">
           <p *ngIf="errorMessage" class="text-center w-100">{{errorMessage}}</p>
           <button type="button" mat-raised-button color="primary" class="btn-block addComment pl-1 pr-1"
                   (click)="addComment()">Add comment
           </button>
         </div>
+      </div>
       </div>
     </div>
     <div class="col-md-4 col-sm-12 postBox remove">

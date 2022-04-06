@@ -27,17 +27,24 @@
       <div class="col-md-4 col-sm-12 text-center welcome">
         Posts
       </div>
-      <div class="col-md-8 col-sm-12 text-center what-is-about pr-5">
+      <div class="col-md-8 col-sm-12 text-center what-is-about">
         <div class="row">
-          <div class="col-md-12 col-sm-12 post mb-5" *ngFor="let post of posts">
-            <div class="post-date mb-1 w-100">{{post.created}}</div>
-            <div class="post-title mb-1 w-100">{{post.title}}</div>
+          <div class="col-md-12 col-sm-12 post mb-2" *ngFor="let post of posts">
+            <div class="row">
+            <div class="col-md-6 col-sm-6">
+              <img class="w-100 hpx-150"
+               src="{{post.image.google_drive_link}}">
+            </div>
+            <div class="col-md-6 col-sm-6 pl-1">
+              <div class="post-date mb-1 w-100">{{post.created}}</div>
+              <div class="post-title">{{post.title}}</div>
+            </div>
             <div class="post-content mb-1 w-100">
               <div class="w-100" *ngFor="let tag of post.content">
                 <p class="paragraphTag" *ngIf="tag.tag === 'p'">{{tag.content}}</p>
               </div>
             </div>
-            <div class="post-read text-right">
+            <div class="post-read text-right w-100">
               <button type="button" mat-raised-button color="primary" class="btn-block read" (click)="readPost(post)">Read</button>
             </div>
           </div>
